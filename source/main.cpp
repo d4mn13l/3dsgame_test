@@ -1,4 +1,4 @@
-#include <fstream>
+//#include <fstream>
 
 #include <3ds.h>
 #include <citro2d.h>
@@ -7,21 +7,27 @@
 
 #include <3ds/console.h>
 
-#include "moving_sprite.hpp"
+//#include "moving_sprite/moving_sprite.hpp"
+#include "player/player.hpp"
+
+
+
+
 
 int main() {
+	
 	consoleInit(GFX_BOTTOM, NULL);
-	get_pobject_server()->add_pobject(get_pnode_tree()); // why do i need to do this
 
 
 	for (std::string log_msg : log_queue) {
 		dlog(log_msg, 4);
 	}
-	
-	get_pobject_server()->print_pobjects();
 
 	MainLoop main_loop;
 
+
+
+	/*
 	MovingSprite moving_sprite(3, true);
 	moving_sprite.name = "moving_sprite";
 
@@ -31,7 +37,7 @@ int main() {
 	if (!sprite_sheet) svcBreak(USERBREAK_PANIC);
 
 
-	C2D_SpriteFromSheet(&moving_sprite.c2d_sprite, sprite_sheet, 10);
+//	C2D_SpriteFromSheet(&moving_sprite.c2d_sprite, sprite_sheet, 10);
 	moving_sprite.move(Vector2{100, 100});
 
 	get_pnode_tree()->root_node.add_pchild(&moving_sprite);
@@ -39,7 +45,8 @@ int main() {
 
 	Sprite moving_sprite_child = Sprite(0, TOP_SCREEN);
 
-	C2D_SpriteFromSheet(&moving_sprite_child.c2d_sprite, sprite_sheet, 42);
+//	C2D_SpriteFromSheet(&moving_sprite_child.c2d_sprite, sprite_sheet, 42);
+	moving_sprite.set_c2d_image_from_psheet(&sprite_sheet, 42);
 	moving_sprite_child.move(Vector2(20,20));
 
 	moving_sprite.add_pchild(&moving_sprite_child);
@@ -79,20 +86,29 @@ int main() {
 	panimated_sprite->move(Vector2{200, 200});
 
 	get_pnode_tree()->root_node.add_pchild(panimated_sprite);
+*/
 
-
-	TileMapResource tile_map_resource = TileMapResource(std::vector<std::vector<int>> {{1,2,6,5,4,3}, {4,5,2,4,6,4}, {1,2,6,5,4,3}, {4,5,2,4,6,4}, {1,2,6,5,4,3}, {4,5,2,4,6,4}}, "romfs:/gfx/tileset.t3x", 16, 0);
+	TileMapResource tile_map_resource = TileMapResource(std::vector<std::vector<int>> {
+		{0,0,0,0,0,0,0,0,0,0,0,0}, 
+		{0,0,0,0,0,0,0,0,0,0,0,0}, 
+		{0,0,0,0,0,0,0,0,0,0,0,0}, 
+		{0,0,0,0,0,0,0,0,0,0,0,0}, 
+		{0,0,0,0,0,0,0,0,0,0,0,0}, 
+		{0,0,0,0,0,0,0,0,0,0,0,0},
+		{0,0,0,0,0,0,0,0,0,0,0,0},
+		{1,1,1,1,1,1,1,1,1,1,1,1}}, 
+		"romfs:/gfx/tileset.t3x", 16, 0);
+	tile_map_resource.collision = true;
+	tile_map_resource.collision_layer = PL_WALLS;
 
 	TileMap* ptile_map = new TileMap(tile_map_resource);
-
-	ptile_map->move(Vector2(100, 100));
 
 	ptile_map->name = "TileMap";
 
 	get_pnode_tree()->root_node.add_pchild(ptile_map);
 
 
-
+/*
 
 	PhysicsBody* ppb = new PhysicsBody(true, false, true);
 	ppb->move(Vector2(100, 100));
@@ -115,6 +131,25 @@ int main() {
 
 	moving_sprite.add_pchild(pmoving_sprite_body);
 
+	*/
+
+
+
+/*	PhysicsBody* pfloor = new PhysicsBody(true, true, true);
+	pfloor->name = "pfloor";
+	pfloor->collision_layer = PL_WALLS;
+
+	pfloor->set_size(Vector2(100, 10));
+	pfloor->move(Vector2(200, 220));
+
+	get_pnode_tree()->root_node.add_pchild(pfloor);
+*/
+
+	Player* pplayer = new Player();
+
+	pplayer->move(Vector2(100, 100));
+
+	get_pnode_tree()->root_node.add_pchild(pplayer);
 
 
 	get_pobject_server()->print_pobjects();
@@ -122,7 +157,7 @@ int main() {
 	get_pnode_tree()->print_tree();
 
 
-	main_loop.run();
+	main_loop.start();
 
 	return 0;
 }

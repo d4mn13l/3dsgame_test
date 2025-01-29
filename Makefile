@@ -37,10 +37,11 @@ include $(DEVKITARM)/3ds_rules
 #---------------------------------------------------------------------------------
 TARGET			:=	$(notdir $(CURDIR))
 BUILD			:=	build
-3DSGAME_SOURCES	:=	3dsgame/source 3dsgame/source/math 3dsgame/source/core 3dsgame/source/debugging 3dsgame/source/nodes 3dsgame/source/nodes/physics 3dsgame/source/nodes/visual 3dsgame/source/objects 3dsgame/source/objects/servers 3dsgame/source/resources
-SOURCES			:=	$(3DSGAME_SOURCES) source
+3DSGAME_SOURCES	:=	3dsgame/source 3dsgame/source/math 3dsgame/source/core 3dsgame/source/resources 3dsgame/source/objects 3dsgame/source/objects/servers 3dsgame/source/nodes 3dsgame/source/nodes/physics 3dsgame/source/nodes/visual 3dsgame/source/debugging
+SOURCES			:=	$(3DSGAME_SOURCES) source source/player
+#SOURCES			:= source
 DATA			:=	data
-INCLUDES		:=	"" 3dsgame 3dsgame/include 3dsgame/include/things
+INCLUDES		:=	. 3dsgame 3dsgame/include 3dsgame/include/things 
 GRAPHICS		:=	gfx
 #GFXBUILD		:=	$(BUILD)
 ROMFS			:=	romfs
@@ -53,11 +54,13 @@ ARCH	:=	-march=armv6k -mtune=mpcore -mfloat-abi=hard -mtp=soft
 
 CFLAGS	:=	-g -Wall -O2 -mword-relocations \
 			-ffunction-sections \
-			$(ARCH)
+			$(ARCH) \
+
+
 
 CFLAGS	+=	$(INCLUDE) -D__3DS__
 
-CXXFLAGS	:= $(CFLAGS)  -fno-exceptions -std=gnu++11 #-fno-rtti 
+CXXFLAGS	:= $(CFLAGS) -fno-exceptions -std=gnu++17 #-fno-rtti  #used to be gnu++11 -L . -llib3dsgame
 
 ASFLAGS	:=	-g $(ARCH)
 LDFLAGS	=	-specs=3dsx.specs -g $(ARCH) -Wl,-Map,$(notdir $*.map)
