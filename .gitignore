@@ -1,0 +1,10 @@
+build/*
+gfx/*
+3dsgame/*
+
+#*.3dsx
+*.elf
+*.smdh
+
+3dslink
+3dsgame/commit_message.txt
