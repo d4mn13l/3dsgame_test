@@ -1,0 +1,10 @@
+--atlas -f rgba8888 -z auto
+
+tileset/00_world_tileset.png
+tileset/01_world_tileset.png
+tileset/02_world_tileset.png
+tileset/03_world_tileset.png
+tileset/04_world_tileset.png
+tileset/05_world_tileset.png
+tileset/06_world_tileset.png
+tileset/07_world_tileset.png
