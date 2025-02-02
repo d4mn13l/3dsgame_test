@@ -60,18 +60,18 @@ CFLAGS	:=	-g -Wall -O2 -mword-relocations \
 
 CFLAGS	+=	$(INCLUDE) -D__3DS__
 
-CXXFLAGS	:= $(CFLAGS) -fno-exceptions -std=gnu++17 #-fno-rtti  #used to be gnu++11 -L . -llib3dsgame
+CXXFLAGS	:= $(CFLAGS) -fno-exceptions -std=gnu++17#-fno-rtti  #used to be gnu++11 -L . -llib3dsgame
 
 ASFLAGS	:=	-g $(ARCH)
 LDFLAGS	=	-specs=3dsx.specs -g $(ARCH) -Wl,-Map,$(notdir $*.map)
 
-LIBS	:= -lcitro2d -lcitro3d -lctru -lm 
+LIBS	:= -lcitro2d -lcitro3d -lctru -lm# -llib3dsgame
 
 #---------------------------------------------------------------------------------
 # list of directories containing libraries, this must be the top level containing
 # include and lib
 #---------------------------------------------------------------------------------
-LIBDIRS	:= $(CTRULIB)
+LIBDIRS	:= $(CTRULIB)# /home/daniel/code/3ds/thing/3dsgame
 
 
 #---------------------------------------------------------------------------------
