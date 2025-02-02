@@ -34,33 +34,31 @@ Player::Player() {
 	add_pchild(panimated_sprite);
 
 	Camera* pcamera = new Camera();
+	add_pchild(pcamera);
+
+	pcamera->name = "camera";
+
+	pcamera->margin = Vector2(30,30);
+//	pcamera->set_scale(Vector2(0.5,0.5));
 
 	pcamera->activate();
 
-	add_pchild(pcamera);
-
-/*
-	Point* pas_point = new Point();
-	pas_point->colour = C2D_Color32(0xFF, 0xFF, 0xFF, 0xFF);
-	panimated_sprite->add_pchild(pas_point);
-
-	
+//	get_pnode_tree()->root_node.
 
 
-	Point* ppoint = new Point();
-	add_pchild(ppoint);
-*/
 }
 
 
 
 void Player::tick(float delta) {
 
-	std::cout << on_floor << on_wall << on_ceiling << std::endl;
-	
+	std::cout << "tick" << std::endl;
+
+//	std::cout << on_floor << on_wall << on_ceiling << std::endl;
+//	std::cout << position.x << std::endl;
 
 	CharacterBody::tick(delta);
-//	std::cout << velocity.y << std::endl;
+
 	handle_movement_input();
 	handle_animations();
 
