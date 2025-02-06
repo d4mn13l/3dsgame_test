@@ -149,6 +149,17 @@ int main() {
 	get_pnode_tree()->root_node.add_pchild(pfloor);
 */
 
+	Area* parea = new Area();
+	parea->name = "area";
+	parea->collision_mask = PL_PLAYER;
+	parea->set_size(Vector2(20, 20));
+	parea->move(Vector2(250, 50));
+	parea->enable();
+	parea->monitoring = true;
+	get_pnode_tree()->root_node.add_pchild(parea);
+
+
+
 	Player* pplayer = new Player();
 
 	pplayer->move(Vector2(100, 100));
@@ -159,6 +170,10 @@ int main() {
 	get_pobject_server()->print_pobjects();
 
 	get_pnode_tree()->print_tree();
+
+
+
+
 
 
 	main_loop.start();

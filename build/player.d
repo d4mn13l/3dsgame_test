@@ -115,6 +115,8 @@ player.o: /home/daniel/code/3ds/thing/source/player/player.cpp \
  /home/daniel/code/3ds/thing/3dsgame/source/core/main_loop.hpp \
  /home/daniel/code/3ds/thing/3dsgame/include/things/node_path.hpp \
  /home/daniel/code/3ds/thing/3dsgame/source/core/node_path.hpp \
+ /home/daniel/code/3ds/thing/3dsgame/include/things/signal.hpp \
+ /home/daniel/code/3ds/thing/3dsgame/source/core/signal.hpp \
  /home/daniel/code/3ds/thing/3dsgame/include/resources.hpp \
  /home/daniel/code/3ds/thing/3dsgame/include/things/sprite_frames.hpp \
  /home/daniel/code/3ds/thing/3dsgame/source/resources/sprite_frames.hpp \
@@ -170,6 +172,8 @@ player.o: /home/daniel/code/3ds/thing/source/player/player.cpp \
  /home/daniel/code/3ds/thing/3dsgame/include/things/character_body.hpp \
  /home/daniel/code/3ds/thing/3dsgame/source/nodes/physics/character_body.hpp \
  /home/daniel/code/3ds/thing/3dsgame/source/nodes/physics/physics_body.hpp \
+ /home/daniel/code/3ds/thing/3dsgame/include/things/area.hpp \
+ /home/daniel/code/3ds/thing/3dsgame/source/nodes/physics/area.hpp \
  /home/daniel/code/3ds/thing/3dsgame/include/things/rendering_server.hpp \
  /home/daniel/code/3ds/thing/3dsgame/source/objects/servers/rendering_server.hpp \
  /home/daniel/code/3ds/thing/3dsgame/include/things/object.hpp \
@@ -295,6 +299,8 @@ player.o: /home/daniel/code/3ds/thing/source/player/player.cpp \
 /home/daniel/code/3ds/thing/3dsgame/source/core/main_loop.hpp:
 /home/daniel/code/3ds/thing/3dsgame/include/things/node_path.hpp:
 /home/daniel/code/3ds/thing/3dsgame/source/core/node_path.hpp:
+/home/daniel/code/3ds/thing/3dsgame/include/things/signal.hpp:
+/home/daniel/code/3ds/thing/3dsgame/source/core/signal.hpp:
 /home/daniel/code/3ds/thing/3dsgame/include/resources.hpp:
 /home/daniel/code/3ds/thing/3dsgame/include/things/sprite_frames.hpp:
 /home/daniel/code/3ds/thing/3dsgame/source/resources/sprite_frames.hpp:
@@ -350,6 +356,8 @@ player.o: /home/daniel/code/3ds/thing/source/player/player.cpp \
 /home/daniel/code/3ds/thing/3dsgame/include/things/character_body.hpp:
 /home/daniel/code/3ds/thing/3dsgame/source/nodes/physics/character_body.hpp:
 /home/daniel/code/3ds/thing/3dsgame/source/nodes/physics/physics_body.hpp:
+/home/daniel/code/3ds/thing/3dsgame/include/things/area.hpp:
+/home/daniel/code/3ds/thing/3dsgame/source/nodes/physics/area.hpp:
 /home/daniel/code/3ds/thing/3dsgame/include/things/rendering_server.hpp:
 /home/daniel/code/3ds/thing/3dsgame/source/objects/servers/rendering_server.hpp:
 /home/daniel/code/3ds/thing/3dsgame/include/things/object.hpp:

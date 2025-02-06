@@ -45,14 +45,23 @@ Player::Player() {
 
 //	get_pnode_tree()->root_node.
 
+	NodePath area_path = NodePath(std::vector<std::string> {"area"});
+	Area* parea = dynamic_cast<Area*>(get_pnode_tree()->root_node.get_pnode(area_path));
 
+	std::cout << "parea = " << parea << std::endl;
+
+	std::function<void()> oaen = on_area_entered;
+	parea->on_body_entered.connect_argless(oaen);
+
+	std::function<void()> oaex = on_area_exited;
+	parea->on_body_exited.connect_argless(oaex);
 }
 
 
 
 void Player::tick(float delta) {
 
-	std::cout << "tick" << std::endl;
+//	std::cout << "tick" << std::endl;
 
 //	std::cout << on_floor << on_wall << on_ceiling << std::endl;
 //	std::cout << position.x << std::endl;
@@ -113,4 +122,13 @@ void Player::move(Vector2 by) {
 	Node2D::move(by);
 
 //	std::cout << "moving by " << by.x << " " << by.y << std::endl;
+}
+
+
+void Player::on_area_entered() {
+	std::cout << "entered" << std::endl;
+}
+
+void Player::on_area_exited() {
+	std::cout << "exited" << std::endl;
 }

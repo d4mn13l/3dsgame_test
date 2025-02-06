@@ -154,6 +154,13 @@ node_tree.o: \
  /home/daniel/code/3ds/thing/3dsgame/include/things/character_body.hpp \
  /home/daniel/code/3ds/thing/3dsgame/source/nodes/physics/character_body.hpp \
  /home/daniel/code/3ds/thing/3dsgame/source/nodes/physics/physics_body.hpp \
+ /home/daniel/code/3ds/thing/3dsgame/include/things/area.hpp \
+ /home/daniel/code/3ds/thing/3dsgame/source/nodes/physics/area.hpp \
+ /home/daniel/code/3ds/thing/3dsgame/include/things/signal.hpp \
+ /home/daniel/code/3ds/thing/3dsgame/source/core/signal.hpp \
+ /home/daniel/code/3ds/thing/3dsgame/include/things/collision_data.hpp \
+ /home/daniel/code/3ds/thing/3dsgame/source/resources/collision_data.hpp \
+ /home/daniel/code/3ds/thing/3dsgame/include/math.hpp \
  /home/daniel/code/3ds/thing/3dsgame/include/debugging.hpp \
  /home/daniel/code/3ds/thing/3dsgame/source/debugging/logging.hpp
 /home/daniel/code/3ds/thing/3dsgame/source/objects/servers/node_tree.hpp:
@@ -310,5 +317,12 @@ node_tree.o: \
 /home/daniel/code/3ds/thing/3dsgame/include/things/character_body.hpp:
 /home/daniel/code/3ds/thing/3dsgame/source/nodes/physics/character_body.hpp:
 /home/daniel/code/3ds/thing/3dsgame/source/nodes/physics/physics_body.hpp:
+/home/daniel/code/3ds/thing/3dsgame/include/things/area.hpp:
+/home/daniel/code/3ds/thing/3dsgame/source/nodes/physics/area.hpp:
+/home/daniel/code/3ds/thing/3dsgame/include/things/signal.hpp:
+/home/daniel/code/3ds/thing/3dsgame/source/core/signal.hpp:
+/home/daniel/code/3ds/thing/3dsgame/include/things/collision_data.hpp:
+/home/daniel/code/3ds/thing/3dsgame/source/resources/collision_data.hpp:
+/home/daniel/code/3ds/thing/3dsgame/include/math.hpp:
 /home/daniel/code/3ds/thing/3dsgame/include/debugging.hpp:
 /home/daniel/code/3ds/thing/3dsgame/source/debugging/logging.hpp:

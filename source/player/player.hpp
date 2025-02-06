@@ -28,6 +28,10 @@ class Player : public CharacterBody {
 		void handle_movement_input();
 		void handle_animations();
 
+
+		static void on_area_entered();
+		static void on_area_exited();
+
 };
 
 
