@@ -1,4 +1,5 @@
 3dsgame/*
+build/*
 
 #*.3dsx
 *.elf
