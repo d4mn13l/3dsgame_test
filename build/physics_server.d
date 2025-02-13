@@ -13,12 +13,16 @@ physics_server.o: \
  /home/daniel/code/3ds/thing/3dsgame/source/math/math_stuff.hpp \
  /home/daniel/code/3ds/thing/3dsgame/include/things/physics_body.hpp \
  /home/daniel/code/3ds/thing/3dsgame/source/nodes/physics/physics_body.hpp \
- /home/daniel/code/3ds/thing/3dsgame/source/nodes/physics/physics_shape.hpp \
  /home/daniel/code/3ds/thing/3dsgame/include/things/node2d.hpp \
  /home/daniel/code/3ds/thing/3dsgame/source/nodes/node2d.hpp \
  /home/daniel/code/3ds/thing/3dsgame/source/nodes/node.hpp \
  /home/daniel/code/3ds/thing/3dsgame/source/core/node_path.hpp \
  /home/daniel/code/3ds/thing/3dsgame/include/math.hpp \
+ /home/daniel/code/3ds/thing/3dsgame/include/things/shape.hpp \
+ /home/daniel/code/3ds/thing/3dsgame/source/nodes/shapes/shape.hpp \
+ /home/daniel/code/3ds/thing/3dsgame/include/things/character_body.hpp \
+ /home/daniel/code/3ds/thing/3dsgame/source/nodes/physics/character_body.hpp \
+ /home/daniel/code/3ds/thing/3dsgame/source/nodes/physics/physics_body.hpp \
  /home/daniel/code/3ds/thing/3dsgame/preferences.hpp \
  /opt/devkitpro/libctru/include/citro2d.h \
  /opt/devkitpro/libctru/include/citro3d.h \
@@ -128,10 +132,7 @@ physics_server.o: \
  /opt/devkitpro/libctru/include/c2d/spritesheet.h \
  /opt/devkitpro/libctru/include/c2d/sprite.h \
  /opt/devkitpro/libctru/include/c2d/text.h \
- /opt/devkitpro/libctru/include/c2d/font.h \
- /home/daniel/code/3ds/thing/3dsgame/include/things/character_body.hpp \
- /home/daniel/code/3ds/thing/3dsgame/source/nodes/physics/character_body.hpp \
- /home/daniel/code/3ds/thing/3dsgame/source/nodes/physics/physics_body.hpp
+ /opt/devkitpro/libctru/include/c2d/font.h
 /home/daniel/code/3ds/thing/3dsgame/source/objects/servers/physics_server.hpp:
 /home/daniel/code/3ds/thing/3dsgame/include/things/object.hpp:
 /home/daniel/code/3ds/thing/3dsgame/source/objects/object.hpp:
@@ -145,12 +146,16 @@ physics_server.o: \
 /home/daniel/code/3ds/thing/3dsgame/source/math/math_stuff.hpp:
 /home/daniel/code/3ds/thing/3dsgame/include/things/physics_body.hpp:
 /home/daniel/code/3ds/thing/3dsgame/source/nodes/physics/physics_body.hpp:
-/home/daniel/code/3ds/thing/3dsgame/source/nodes/physics/physics_shape.hpp:
 /home/daniel/code/3ds/thing/3dsgame/include/things/node2d.hpp:
 /home/daniel/code/3ds/thing/3dsgame/source/nodes/node2d.hpp:
 /home/daniel/code/3ds/thing/3dsgame/source/nodes/node.hpp:
 /home/daniel/code/3ds/thing/3dsgame/source/core/node_path.hpp:
 /home/daniel/code/3ds/thing/3dsgame/include/math.hpp:
+/home/daniel/code/3ds/thing/3dsgame/include/things/shape.hpp:
+/home/daniel/code/3ds/thing/3dsgame/source/nodes/shapes/shape.hpp:
+/home/daniel/code/3ds/thing/3dsgame/include/things/character_body.hpp:
+/home/daniel/code/3ds/thing/3dsgame/source/nodes/physics/character_body.hpp:
+/home/daniel/code/3ds/thing/3dsgame/source/nodes/physics/physics_body.hpp:
 /home/daniel/code/3ds/thing/3dsgame/preferences.hpp:
 /opt/devkitpro/libctru/include/citro2d.h:
 /opt/devkitpro/libctru/include/citro3d.h:
@@ -261,6 +266,3 @@ physics_server.o: \
 /opt/devkitpro/libctru/include/c2d/sprite.h:
 /opt/devkitpro/libctru/include/c2d/text.h:
 /opt/devkitpro/libctru/include/c2d/font.h:
-/home/daniel/code/3ds/thing/3dsgame/include/things/character_body.hpp:
-/home/daniel/code/3ds/thing/3dsgame/source/nodes/physics/character_body.hpp:
-/home/daniel/code/3ds/thing/3dsgame/source/nodes/physics/physics_body.hpp:

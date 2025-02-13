@@ -123,7 +123,9 @@ tile_map_resource.o: \
  /home/daniel/code/3ds/thing/3dsgame/source/math/vector2.hpp \
  /home/daniel/code/3ds/thing/3dsgame/include/things/math_stuff.hpp \
  /home/daniel/code/3ds/thing/3dsgame/source/math/math_stuff.hpp \
- /home/daniel/code/3ds/thing/3dsgame/preferences.hpp
+ /home/daniel/code/3ds/thing/3dsgame/preferences.hpp \
+ /home/daniel/code/3ds/thing/3dsgame/include/debugging.hpp \
+ /home/daniel/code/3ds/thing/3dsgame/source/debugging/logging.hpp
 /home/daniel/code/3ds/thing/3dsgame/source/resources/tile_map_resource.hpp:
 /home/daniel/code/3ds/thing/3dsgame/include/things/sprite.hpp:
 /home/daniel/code/3ds/thing/3dsgame/source/nodes/visual/sprite.hpp:
@@ -248,3 +250,5 @@ tile_map_resource.o: \
 /home/daniel/code/3ds/thing/3dsgame/include/things/math_stuff.hpp:
 /home/daniel/code/3ds/thing/3dsgame/source/math/math_stuff.hpp:
 /home/daniel/code/3ds/thing/3dsgame/preferences.hpp:
+/home/daniel/code/3ds/thing/3dsgame/include/debugging.hpp:
+/home/daniel/code/3ds/thing/3dsgame/source/debugging/logging.hpp:

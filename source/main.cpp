@@ -16,6 +16,7 @@
 
 int main() {
 	
+	MainLoop main_loop;
 	consoleInit(GFX_BOTTOM, NULL);
 
 
@@ -23,11 +24,15 @@ int main() {
 		dlog(log_msg, 4);
 	}
 
-	MainLoop main_loop;
+	dlog("hi", 10);
+
+	std::cout << "size of vector = " << sizeof(Vector2) << std::endl;
+
+	
 
 
 
-	/*
+/*	
 	MovingSprite moving_sprite(3, true);
 	moving_sprite.name = "moving_sprite";
 
@@ -139,23 +144,33 @@ int main() {
 
 
 
-/*	PhysicsBody* pfloor = new PhysicsBody(true, true, true);
+	PhysicsBody* pfloor = new PhysicsBody(true, true, true);
 	pfloor->name = "pfloor";
 	pfloor->collision_layer = PL_WALLS;
 
-	pfloor->set_size(Vector2(100, 10));
+	//pfloor->set_size(Vector2(100, 10));
+
+	RectangleShape* pfloor_pshape = new RectangleShape(Vector2(100, 10));
+	pfloor->add_pchild(pfloor_pshape);
+	pfloor->add_pshape(pfloor_pshape);
+
 	pfloor->move(Vector2(200, 220));
 
 	get_pnode_tree()->root_node.add_pchild(pfloor);
-*/
+
 
 	Area* parea = new Area();
 	parea->name = "area";
 	parea->collision_mask = PL_PLAYER;
-	parea->set_size(Vector2(20, 20));
-	parea->move(Vector2(250, 50));
 	parea->enable();
 	parea->monitoring = true;
+
+	RectangleShape* parea_pshape = new RectangleShape();
+	parea_pshape->size = Vector2(20, 20);
+	parea->add_pchild(parea_pshape);
+	parea->add_pshape(parea_pshape);
+
+	parea->move(Vector2(250, 50));
 	get_pnode_tree()->root_node.add_pchild(parea);
 
 

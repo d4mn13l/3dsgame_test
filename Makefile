@@ -37,7 +37,7 @@ include $(DEVKITARM)/3ds_rules
 #---------------------------------------------------------------------------------
 TARGET			:=	$(notdir $(CURDIR))
 BUILD			:=	build
-3DSGAME_SOURCES	:=	3dsgame/source 3dsgame/source/math 3dsgame/source/core 3dsgame/source/resources 3dsgame/source/objects 3dsgame/source/objects/servers 3dsgame/source/nodes 3dsgame/source/nodes/physics 3dsgame/source/nodes/visual 3dsgame/source/debugging
+3DSGAME_SOURCES	:=	3dsgame/source 3dsgame/source/math 3dsgame/source/core 3dsgame/source/resources 3dsgame/source/objects 3dsgame/source/objects/servers 3dsgame/source/nodes 3dsgame/source/nodes/shapes 3dsgame/source/nodes/physics 3dsgame/source/nodes/visual 3dsgame/source/debugging
 SOURCES			:=	$(3DSGAME_SOURCES) source source/player
 #SOURCES			:= source
 DATA			:=	data

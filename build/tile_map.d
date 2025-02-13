@@ -130,7 +130,11 @@ tile_map.o: \
  /home/daniel/code/3ds/thing/3dsgame/source/nodes/visual/sprite.hpp \
  /home/daniel/code/3ds/thing/3dsgame/include/things/physics_body.hpp \
  /home/daniel/code/3ds/thing/3dsgame/source/nodes/physics/physics_body.hpp \
- /home/daniel/code/3ds/thing/3dsgame/source/nodes/physics/physics_shape.hpp \
+ /home/daniel/code/3ds/thing/3dsgame/include/things/shape.hpp \
+ /home/daniel/code/3ds/thing/3dsgame/source/nodes/shapes/shape.hpp \
+ /home/daniel/code/3ds/thing/3dsgame/include/things/rectangle_shape.hpp \
+ /home/daniel/code/3ds/thing/3dsgame/source/nodes/shapes/rectangle_shape.hpp \
+ /home/daniel/code/3ds/thing/3dsgame/source/nodes/shapes/shape.hpp \
  /home/daniel/code/3ds/thing/3dsgame/include/things/rendering_server.hpp \
  /home/daniel/code/3ds/thing/3dsgame/source/objects/servers/rendering_server.hpp \
  /home/daniel/code/3ds/thing/3dsgame/include/things/object.hpp \
@@ -267,7 +271,11 @@ tile_map.o: \
 /home/daniel/code/3ds/thing/3dsgame/source/nodes/visual/sprite.hpp:
 /home/daniel/code/3ds/thing/3dsgame/include/things/physics_body.hpp:
 /home/daniel/code/3ds/thing/3dsgame/source/nodes/physics/physics_body.hpp:
-/home/daniel/code/3ds/thing/3dsgame/source/nodes/physics/physics_shape.hpp:
+/home/daniel/code/3ds/thing/3dsgame/include/things/shape.hpp:
+/home/daniel/code/3ds/thing/3dsgame/source/nodes/shapes/shape.hpp:
+/home/daniel/code/3ds/thing/3dsgame/include/things/rectangle_shape.hpp:
+/home/daniel/code/3ds/thing/3dsgame/source/nodes/shapes/rectangle_shape.hpp:
+/home/daniel/code/3ds/thing/3dsgame/source/nodes/shapes/shape.hpp:
 /home/daniel/code/3ds/thing/3dsgame/include/things/rendering_server.hpp:
 /home/daniel/code/3ds/thing/3dsgame/source/objects/servers/rendering_server.hpp:
 /home/daniel/code/3ds/thing/3dsgame/include/things/object.hpp:

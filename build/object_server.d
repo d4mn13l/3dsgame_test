@@ -115,69 +115,13 @@ object_server.o: \
  /opt/devkitpro/libctru/include/c2d/sprite.h \
  /opt/devkitpro/libctru/include/c2d/text.h \
  /opt/devkitpro/libctru/include/c2d/font.h \
- /home/daniel/code/3ds/thing/3dsgame/include/objects.hpp \
- /home/daniel/code/3ds/thing/3dsgame/include/servers.hpp \
- /home/daniel/code/3ds/thing/3dsgame/include/things/object_server.hpp \
- /home/daniel/code/3ds/thing/3dsgame/include/things/physics_server.hpp \
- /home/daniel/code/3ds/thing/3dsgame/source/objects/servers/physics_server.hpp \
- /home/daniel/code/3ds/thing/3dsgame/include/things/collision_data.hpp \
- /home/daniel/code/3ds/thing/3dsgame/source/resources/collision_data.hpp \
- /home/daniel/code/3ds/thing/3dsgame/include/math.hpp \
- /home/daniel/code/3ds/thing/3dsgame/include/things/vector2.hpp \
- /home/daniel/code/3ds/thing/3dsgame/source/math/vector2.hpp \
- /home/daniel/code/3ds/thing/3dsgame/include/things/math_stuff.hpp \
- /home/daniel/code/3ds/thing/3dsgame/source/math/math_stuff.hpp \
- /home/daniel/code/3ds/thing/3dsgame/include/things/node_tree.hpp \
- /home/daniel/code/3ds/thing/3dsgame/source/objects/servers/node_tree.hpp \
- /home/daniel/code/3ds/thing/3dsgame/include/nodes.hpp \
- /home/daniel/code/3ds/thing/3dsgame/include/things/node.hpp \
- /home/daniel/code/3ds/thing/3dsgame/source/nodes/node.hpp \
- /home/daniel/code/3ds/thing/3dsgame/source/core/node_path.hpp \
- /home/daniel/code/3ds/thing/3dsgame/include/math.hpp \
- /home/daniel/code/3ds/thing/3dsgame/include/things/root_node.hpp \
- /home/daniel/code/3ds/thing/3dsgame/source/nodes/root_node.hpp \
- /home/daniel/code/3ds/thing/3dsgame/include/things/node2d.hpp \
- /home/daniel/code/3ds/thing/3dsgame/source/nodes/node2d.hpp \
- /home/daniel/code/3ds/thing/3dsgame/include/things/sprite.hpp \
- /home/daniel/code/3ds/thing/3dsgame/source/nodes/visual/sprite.hpp \
- /home/daniel/code/3ds/thing/3dsgame/include/things/animated_sprite.hpp \
- /home/daniel/code/3ds/thing/3dsgame/source/nodes/visual/animated_sprite.hpp \
- /home/daniel/code/3ds/thing/3dsgame/source/nodes/visual/sprite.hpp \
- /home/daniel/code/3ds/thing/3dsgame/include/things/sprite_frames.hpp \
- /home/daniel/code/3ds/thing/3dsgame/source/resources/sprite_frames.hpp \
- /home/daniel/code/3ds/thing/3dsgame/include/things/tile_map.hpp \
- /home/daniel/code/3ds/thing/3dsgame/source/nodes/visual/tile_map.hpp \
- /home/daniel/code/3ds/thing/3dsgame/include/things/tile_map_resource.hpp \
- /home/daniel/code/3ds/thing/3dsgame/source/resources/tile_map_resource.hpp \
- /home/daniel/code/3ds/thing/3dsgame/include/things/sprite.hpp \
- /home/daniel/code/3ds/thing/3dsgame/include/things/camera.hpp \
- /home/daniel/code/3ds/thing/3dsgame/source/nodes/visual/camera.hpp \
- /home/daniel/code/3ds/thing/3dsgame/include/things/drawable.hpp \
- /home/daniel/code/3ds/thing/3dsgame/source/nodes/visual/drawable.hpp \
- /home/daniel/code/3ds/thing/3dsgame/include/things/point.hpp \
- /home/daniel/code/3ds/thing/3dsgame/source/nodes/visual/point.hpp \
- /home/daniel/code/3ds/thing/3dsgame/source/nodes/visual/drawable.hpp \
- /home/daniel/code/3ds/thing/3dsgame/include/things/physics_shape.hpp \
- /home/daniel/code/3ds/thing/3dsgame/source/nodes/physics/physics_shape.hpp \
- /home/daniel/code/3ds/thing/3dsgame/include/things/physics_body.hpp \
- /home/daniel/code/3ds/thing/3dsgame/source/nodes/physics/physics_body.hpp \
- /home/daniel/code/3ds/thing/3dsgame/source/nodes/physics/physics_shape.hpp \
- /home/daniel/code/3ds/thing/3dsgame/include/things/character_body.hpp \
- /home/daniel/code/3ds/thing/3dsgame/source/nodes/physics/character_body.hpp \
- /home/daniel/code/3ds/thing/3dsgame/source/nodes/physics/physics_body.hpp \
- /home/daniel/code/3ds/thing/3dsgame/include/things/area.hpp \
- /home/daniel/code/3ds/thing/3dsgame/source/nodes/physics/area.hpp \
- /home/daniel/code/3ds/thing/3dsgame/include/things/signal.hpp \
- /home/daniel/code/3ds/thing/3dsgame/source/core/signal.hpp \
- /home/daniel/code/3ds/thing/3dsgame/include/things/rendering_server.hpp \
- /home/daniel/code/3ds/thing/3dsgame/source/objects/servers/rendering_server.hpp \
- /home/daniel/code/3ds/thing/3dsgame/include/things/object.hpp \
- /home/daniel/code/3ds/thing/3dsgame/include/things/drawable.hpp \
- /home/daniel/code/3ds/thing/3dsgame/include/things/vector2.hpp \
  /home/daniel/code/3ds/thing/3dsgame/include/core.hpp \
  /home/daniel/code/3ds/thing/3dsgame/include/things/main_loop.hpp \
  /home/daniel/code/3ds/thing/3dsgame/source/core/main_loop.hpp \
- /home/daniel/code/3ds/thing/3dsgame/include/things/node_path.hpp
+ /home/daniel/code/3ds/thing/3dsgame/include/things/node_path.hpp \
+ /home/daniel/code/3ds/thing/3dsgame/source/core/node_path.hpp \
+ /home/daniel/code/3ds/thing/3dsgame/include/things/signal.hpp \
+ /home/daniel/code/3ds/thing/3dsgame/source/core/signal.hpp
 /home/daniel/code/3ds/thing/3dsgame/source/objects/servers/object_server.hpp:
 /home/daniel/code/3ds/thing/3dsgame/include/things/object.hpp:
 /home/daniel/code/3ds/thing/3dsgame/source/objects/object.hpp:
@@ -293,66 +237,10 @@ object_server.o: \
 /opt/devkitpro/libctru/include/c2d/sprite.h:
 /opt/devkitpro/libctru/include/c2d/text.h:
 /opt/devkitpro/libctru/include/c2d/font.h:
-/home/daniel/code/3ds/thing/3dsgame/include/objects.hpp:
-/home/daniel/code/3ds/thing/3dsgame/include/servers.hpp:
-/home/daniel/code/3ds/thing/3dsgame/include/things/object_server.hpp:
-/home/daniel/code/3ds/thing/3dsgame/include/things/physics_server.hpp:
-/home/daniel/code/3ds/thing/3dsgame/source/objects/servers/physics_server.hpp:
-/home/daniel/code/3ds/thing/3dsgame/include/things/collision_data.hpp:
-/home/daniel/code/3ds/thing/3dsgame/source/resources/collision_data.hpp:
-/home/daniel/code/3ds/thing/3dsgame/include/math.hpp:
-/home/daniel/code/3ds/thing/3dsgame/include/things/vector2.hpp:
-/home/daniel/code/3ds/thing/3dsgame/source/math/vector2.hpp:
-/home/daniel/code/3ds/thing/3dsgame/include/things/math_stuff.hpp:
-/home/daniel/code/3ds/thing/3dsgame/source/math/math_stuff.hpp:
-/home/daniel/code/3ds/thing/3dsgame/include/things/node_tree.hpp:
-/home/daniel/code/3ds/thing/3dsgame/source/objects/servers/node_tree.hpp:
-/home/daniel/code/3ds/thing/3dsgame/include/nodes.hpp:
-/home/daniel/code/3ds/thing/3dsgame/include/things/node.hpp:
-/home/daniel/code/3ds/thing/3dsgame/source/nodes/node.hpp:
-/home/daniel/code/3ds/thing/3dsgame/source/core/node_path.hpp:
-/home/daniel/code/3ds/thing/3dsgame/include/math.hpp:
-/home/daniel/code/3ds/thing/3dsgame/include/things/root_node.hpp:
-/home/daniel/code/3ds/thing/3dsgame/source/nodes/root_node.hpp:
-/home/daniel/code/3ds/thing/3dsgame/include/things/node2d.hpp:
-/home/daniel/code/3ds/thing/3dsgame/source/nodes/node2d.hpp:
-/home/daniel/code/3ds/thing/3dsgame/include/things/sprite.hpp:
-/home/daniel/code/3ds/thing/3dsgame/source/nodes/visual/sprite.hpp:
-/home/daniel/code/3ds/thing/3dsgame/include/things/animated_sprite.hpp:
-/home/daniel/code/3ds/thing/3dsgame/source/nodes/visual/animated_sprite.hpp:
-/home/daniel/code/3ds/thing/3dsgame/source/nodes/visual/sprite.hpp:
-/home/daniel/code/3ds/thing/3dsgame/include/things/sprite_frames.hpp:
-/home/daniel/code/3ds/thing/3dsgame/source/resources/sprite_frames.hpp:
-/home/daniel/code/3ds/thing/3dsgame/include/things/tile_map.hpp:
-/home/daniel/code/3ds/thing/3dsgame/source/nodes/visual/tile_map.hpp:
-/home/daniel/code/3ds/thing/3dsgame/include/things/tile_map_resource.hpp:
-/home/daniel/code/3ds/thing/3dsgame/source/resources/tile_map_resource.hpp:
-/home/daniel/code/3ds/thing/3dsgame/include/things/sprite.hpp:
-/home/daniel/code/3ds/thing/3dsgame/include/things/camera.hpp:
-/home/daniel/code/3ds/thing/3dsgame/source/nodes/visual/camera.hpp:
-/home/daniel/code/3ds/thing/3dsgame/include/things/drawable.hpp:
-/home/daniel/code/3ds/thing/3dsgame/source/nodes/visual/drawable.hpp:
-/home/daniel/code/3ds/thing/3dsgame/include/things/point.hpp:
-/home/daniel/code/3ds/thing/3dsgame/source/nodes/visual/point.hpp:
-/home/daniel/code/3ds/thing/3dsgame/source/nodes/visual/drawable.hpp:
-/home/daniel/code/3ds/thing/3dsgame/include/things/physics_shape.hpp:
-/home/daniel/code/3ds/thing/3dsgame/source/nodes/physics/physics_shape.hpp:
-/home/daniel/code/3ds/thing/3dsgame/include/things/physics_body.hpp:
-/home/daniel/code/3ds/thing/3dsgame/source/nodes/physics/physics_body.hpp:
-/home/daniel/code/3ds/thing/3dsgame/source/nodes/physics/physics_shape.hpp:
-/home/daniel/code/3ds/thing/3dsgame/include/things/character_body.hpp:
-/home/daniel/code/3ds/thing/3dsgame/source/nodes/physics/character_body.hpp:
-/home/daniel/code/3ds/thing/3dsgame/source/nodes/physics/physics_body.hpp:
-/home/daniel/code/3ds/thing/3dsgame/include/things/area.hpp:
-/home/daniel/code/3ds/thing/3dsgame/source/nodes/physics/area.hpp:
-/home/daniel/code/3ds/thing/3dsgame/include/things/signal.hpp:
-/home/daniel/code/3ds/thing/3dsgame/source/core/signal.hpp:
-/home/daniel/code/3ds/thing/3dsgame/include/things/rendering_server.hpp:
-/home/daniel/code/3ds/thing/3dsgame/source/objects/servers/rendering_server.hpp:
-/home/daniel/code/3ds/thing/3dsgame/include/things/object.hpp:
-/home/daniel/code/3ds/thing/3dsgame/include/things/drawable.hpp:
-/home/daniel/code/3ds/thing/3dsgame/include/things/vector2.hpp:
 /home/daniel/code/3ds/thing/3dsgame/include/core.hpp:
 /home/daniel/code/3ds/thing/3dsgame/include/things/main_loop.hpp:
 /home/daniel/code/3ds/thing/3dsgame/source/core/main_loop.hpp:
 /home/daniel/code/3ds/thing/3dsgame/include/things/node_path.hpp:
+/home/daniel/code/3ds/thing/3dsgame/source/core/node_path.hpp:
+/home/daniel/code/3ds/thing/3dsgame/include/things/signal.hpp:
+/home/daniel/code/3ds/thing/3dsgame/source/core/signal.hpp:

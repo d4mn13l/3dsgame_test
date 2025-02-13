@@ -1,6 +1,7 @@
-physics_shape.o: \
- /home/daniel/code/3ds/thing/3dsgame/source/nodes/physics/physics_shape.cpp \
- /home/daniel/code/3ds/thing/3dsgame/source/nodes/physics/physics_shape.hpp \
+rectangle_shape.o: \
+ /home/daniel/code/3ds/thing/3dsgame/source/nodes/shapes/rectangle_shape.cpp \
+ /home/daniel/code/3ds/thing/3dsgame/source/nodes/shapes/rectangle_shape.hpp \
+ /home/daniel/code/3ds/thing/3dsgame/source/nodes/shapes/shape.hpp \
  /home/daniel/code/3ds/thing/3dsgame/include/things/node2d.hpp \
  /home/daniel/code/3ds/thing/3dsgame/source/nodes/node2d.hpp \
  /home/daniel/code/3ds/thing/3dsgame/source/nodes/node.hpp \
@@ -123,13 +124,12 @@ physics_shape.o: \
  /opt/devkitpro/libctru/include/c2d/sprite.h \
  /opt/devkitpro/libctru/include/c2d/text.h \
  /opt/devkitpro/libctru/include/c2d/font.h \
- /home/daniel/code/3ds/thing/3dsgame/include/things/shape_visualiser.hpp \
  /home/daniel/code/3ds/thing/3dsgame/source/nodes/shapes/shape_visualiser.hpp \
  /home/daniel/code/3ds/thing/3dsgame/include/things/drawable.hpp \
  /home/daniel/code/3ds/thing/3dsgame/source/nodes/visual/drawable.hpp \
- /home/daniel/code/3ds/thing/3dsgame/include/debugging.hpp \
- /home/daniel/code/3ds/thing/3dsgame/source/debugging/logging.hpp
-/home/daniel/code/3ds/thing/3dsgame/source/nodes/physics/physics_shape.hpp:
+ /home/daniel/code/3ds/thing/3dsgame/include/math.hpp
+/home/daniel/code/3ds/thing/3dsgame/source/nodes/shapes/rectangle_shape.hpp:
+/home/daniel/code/3ds/thing/3dsgame/source/nodes/shapes/shape.hpp:
 /home/daniel/code/3ds/thing/3dsgame/include/things/node2d.hpp:
 /home/daniel/code/3ds/thing/3dsgame/source/nodes/node2d.hpp:
 /home/daniel/code/3ds/thing/3dsgame/source/nodes/node.hpp:
@@ -252,9 +252,7 @@ physics_shape.o: \
 /opt/devkitpro/libctru/include/c2d/sprite.h:
 /opt/devkitpro/libctru/include/c2d/text.h:
 /opt/devkitpro/libctru/include/c2d/font.h:
-/home/daniel/code/3ds/thing/3dsgame/include/things/shape_visualiser.hpp:
 /home/daniel/code/3ds/thing/3dsgame/source/nodes/shapes/shape_visualiser.hpp:
 /home/daniel/code/3ds/thing/3dsgame/include/things/drawable.hpp:
 /home/daniel/code/3ds/thing/3dsgame/source/nodes/visual/drawable.hpp:
-/home/daniel/code/3ds/thing/3dsgame/include/debugging.hpp:
-/home/daniel/code/3ds/thing/3dsgame/source/debugging/logging.hpp:
+/home/daniel/code/3ds/thing/3dsgame/include/math.hpp:

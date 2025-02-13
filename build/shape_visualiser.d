@@ -1,6 +1,8 @@
-physics_shape.o: \
- /home/daniel/code/3ds/thing/3dsgame/source/nodes/physics/physics_shape.cpp \
- /home/daniel/code/3ds/thing/3dsgame/source/nodes/physics/physics_shape.hpp \
+shape_visualiser.o: \
+ /home/daniel/code/3ds/thing/3dsgame/source/nodes/shapes/shape_visualiser.cpp \
+ /home/daniel/code/3ds/thing/3dsgame/source/nodes/shapes/shape_visualiser.hpp \
+ /home/daniel/code/3ds/thing/3dsgame/include/things/drawable.hpp \
+ /home/daniel/code/3ds/thing/3dsgame/source/nodes/visual/drawable.hpp \
  /home/daniel/code/3ds/thing/3dsgame/include/things/node2d.hpp \
  /home/daniel/code/3ds/thing/3dsgame/source/nodes/node2d.hpp \
  /home/daniel/code/3ds/thing/3dsgame/source/nodes/node.hpp \
@@ -13,7 +15,6 @@ physics_shape.o: \
  /home/daniel/code/3ds/thing/3dsgame/source/math/vector2.hpp \
  /home/daniel/code/3ds/thing/3dsgame/include/things/math_stuff.hpp \
  /home/daniel/code/3ds/thing/3dsgame/source/math/math_stuff.hpp \
- /home/daniel/code/3ds/thing/3dsgame/preferences.hpp \
  /opt/devkitpro/libctru/include/citro2d.h \
  /opt/devkitpro/libctru/include/citro3d.h \
  /opt/devkitpro/libctru/include/c3d/types.h \
@@ -123,13 +124,12 @@ physics_shape.o: \
  /opt/devkitpro/libctru/include/c2d/sprite.h \
  /opt/devkitpro/libctru/include/c2d/text.h \
  /opt/devkitpro/libctru/include/c2d/font.h \
- /home/daniel/code/3ds/thing/3dsgame/include/things/shape_visualiser.hpp \
- /home/daniel/code/3ds/thing/3dsgame/source/nodes/shapes/shape_visualiser.hpp \
- /home/daniel/code/3ds/thing/3dsgame/include/things/drawable.hpp \
- /home/daniel/code/3ds/thing/3dsgame/source/nodes/visual/drawable.hpp \
- /home/daniel/code/3ds/thing/3dsgame/include/debugging.hpp \
- /home/daniel/code/3ds/thing/3dsgame/source/debugging/logging.hpp
-/home/daniel/code/3ds/thing/3dsgame/source/nodes/physics/physics_shape.hpp:
+ /home/daniel/code/3ds/thing/3dsgame/include/things/physics_shape.hpp \
+ /home/daniel/code/3ds/thing/3dsgame/source/nodes/physics/physics_shape.hpp \
+ /home/daniel/code/3ds/thing/3dsgame/preferences.hpp
+/home/daniel/code/3ds/thing/3dsgame/source/nodes/shapes/shape_visualiser.hpp:
+/home/daniel/code/3ds/thing/3dsgame/include/things/drawable.hpp:
+/home/daniel/code/3ds/thing/3dsgame/source/nodes/visual/drawable.hpp:
 /home/daniel/code/3ds/thing/3dsgame/include/things/node2d.hpp:
 /home/daniel/code/3ds/thing/3dsgame/source/nodes/node2d.hpp:
 /home/daniel/code/3ds/thing/3dsgame/source/nodes/node.hpp:
@@ -142,7 +142,6 @@ physics_shape.o: \
 /home/daniel/code/3ds/thing/3dsgame/source/math/vector2.hpp:
 /home/daniel/code/3ds/thing/3dsgame/include/things/math_stuff.hpp:
 /home/daniel/code/3ds/thing/3dsgame/source/math/math_stuff.hpp:
-/home/daniel/code/3ds/thing/3dsgame/preferences.hpp:
 /opt/devkitpro/libctru/include/citro2d.h:
 /opt/devkitpro/libctru/include/citro3d.h:
 /opt/devkitpro/libctru/include/c3d/types.h:
@@ -252,9 +251,6 @@ physics_shape.o: \
 /opt/devkitpro/libctru/include/c2d/sprite.h:
 /opt/devkitpro/libctru/include/c2d/text.h:
 /opt/devkitpro/libctru/include/c2d/font.h:
-/home/daniel/code/3ds/thing/3dsgame/include/things/shape_visualiser.hpp:
-/home/daniel/code/3ds/thing/3dsgame/source/nodes/shapes/shape_visualiser.hpp:
-/home/daniel/code/3ds/thing/3dsgame/include/things/drawable.hpp:
-/home/daniel/code/3ds/thing/3dsgame/source/nodes/visual/drawable.hpp:
-/home/daniel/code/3ds/thing/3dsgame/include/debugging.hpp:
-/home/daniel/code/3ds/thing/3dsgame/source/debugging/logging.hpp:
+/home/daniel/code/3ds/thing/3dsgame/include/things/physics_shape.hpp:
+/home/daniel/code/3ds/thing/3dsgame/source/nodes/physics/physics_shape.hpp:
+/home/daniel/code/3ds/thing/3dsgame/preferences.hpp:

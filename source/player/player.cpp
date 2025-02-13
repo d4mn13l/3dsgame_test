@@ -14,7 +14,14 @@ Player::Player() {
 	collision_layer = PL_PLAYER;
 	collision_mask = PL_WALLS | PL_PLAYER | PL_ENEMIES | PL_COINS;
 
-	set_size(Vector2(10, 16));
+//	set_size(Vector2(10, 16));
+
+	// create Shape
+	RectangleShape* pshape = new RectangleShape();
+	pshape->size = Vector2(10, 16);
+	add_pchild(pshape);
+	add_pshape(pshape);
+
 
 	// create AnimatedSprite
 
@@ -45,7 +52,7 @@ Player::Player() {
 
 //	get_pnode_tree()->root_node.
 
-	NodePath area_path = NodePath(std::vector<std::string> {"area"});
+/*	NodePath area_path = NodePath(std::vector<std::string> {"area"});
 	Area* parea = dynamic_cast<Area*>(get_pnode_tree()->root_node.get_pnode(area_path));
 
 	std::cout << "parea = " << parea << std::endl;
@@ -55,6 +62,7 @@ Player::Player() {
 
 	std::function<void()> oaex = on_area_exited;
 	parea->on_body_exited.connect_argless(oaex);
+*/
 }
 
 
@@ -80,6 +88,8 @@ void Player::tick(float delta) {
 void Player::handle_movement_input() {
 	u32 keys_held = hidKeysHeld();
 //	u32 keys_pressed = hidKeysDown();
+
+	std::cout << on_floor << on_wall << on_ceiling << std::endl;
 
 	if (keys_held & KEY_LEFT) {
 		velocity.x = -speed;
@@ -126,9 +136,9 @@ void Player::move(Vector2 by) {
 
 
 void Player::on_area_entered() {
-	std::cout << "entered" << std::endl;
+	dlog("entered", 10);
 }
 
 void Player::on_area_exited() {
-	std::cout << "exited" << std::endl;
+	dlog("exited", 10);
 }
