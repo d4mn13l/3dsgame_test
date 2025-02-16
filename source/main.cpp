@@ -16,20 +16,23 @@
 
 int main() {
 	
-	MainLoop main_loop;
+
+
 	consoleInit(GFX_BOTTOM, NULL);
 
+	dlog("hi", 10);
+
+	MainLoop main_loop = MainLoop();
+	
 
 	for (std::string log_msg : log_queue) {
 		dlog(log_msg, 4);
 	}
-
-	dlog("hi", 10);
+	
 
 	std::cout << "size of vector = " << sizeof(Vector2) << std::endl;
 
 	
-
 
 
 /*	
@@ -93,6 +96,7 @@ int main() {
 	get_pnode_tree()->root_node.add_pchild(panimated_sprite);
 */
 
+
 	TileMapResource tile_map_resource = TileMapResource(std::vector<std::vector<int>> {
 		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}, 
 		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}, 
@@ -105,17 +109,16 @@ int main() {
 		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
 		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0},
 		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,2,2,0},
-		{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,1,1,1,1,1}}, 
+		{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0}}, 
 		"romfs:/gfx/tileset.t3x", 16, 0);
 	tile_map_resource.collision = true;
 	tile_map_resource.collision_layer = PL_WALLS;
 
+
 	TileMap* ptile_map = new TileMap(tile_map_resource);
 
 	ptile_map->name = "TileMap";
-
 	get_pnode_tree()->root_node.add_pchild(ptile_map);
-
 
 /*
 
@@ -142,7 +145,7 @@ int main() {
 
 	*/
 
-
+	
 
 	PhysicsBody* pfloor = new PhysicsBody(true, true, true);
 	pfloor->name = "pfloor";
@@ -150,7 +153,8 @@ int main() {
 
 	//pfloor->set_size(Vector2(100, 10));
 
-	RectangleShape* pfloor_pshape = new RectangleShape(Vector2(100, 10));
+	RectangleShape* pfloor_pshape = new RectangleShape();
+	pfloor_pshape->size = Vector2(100, 10);
 	pfloor->add_pchild(pfloor_pshape);
 	pfloor->add_pshape(pfloor_pshape);
 
@@ -184,9 +188,7 @@ int main() {
 
 	get_pobject_server()->print_pobjects();
 
-	get_pnode_tree()->print_tree();
-
-
+//	get_pnode_tree()->print_tree();
 
 
 

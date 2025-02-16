@@ -82,6 +82,15 @@ void Player::tick(float delta) {
 	move_and_collide(velocity * delta);
 
 	update_on_things();
+
+
+	auto cols = get_pphysics_server()->get_collisions(this);
+
+	for (auto col : cols) {
+	  // std::cout << "po: x = " << col.overlap.x << ", y = " << col.overlap.y << std::endl;
+//	  std::cout << cols.size() << std::endl;
+	}
+
 }
 
 
@@ -89,7 +98,7 @@ void Player::handle_movement_input() {
 	u32 keys_held = hidKeysHeld();
 //	u32 keys_pressed = hidKeysDown();
 
-	std::cout << on_floor << on_wall << on_ceiling << std::endl;
+//	std::cout << on_floor << on_wall << on_ceiling << std::endl;
 
 	if (keys_held & KEY_LEFT) {
 		velocity.x = -speed;
