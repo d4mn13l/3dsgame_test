@@ -5,8 +5,8 @@ MovingSprite::MovingSprite(int z_index_arg, bool top_screen) : Sprite::Sprite(z_
 	return;
 }
 
-void MovingSprite::tick(float delta) {
-	Sprite::tick(delta);
+void MovingSprite::_tick(float delta) {
+	Sprite::_tick(delta);
 //	hidScanInput();
 
 //	dlog("elo", 10);

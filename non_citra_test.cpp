@@ -5,11 +5,91 @@
 #include <iostream>
 #include <algorithm>
 
+#include "3dsgame/source/nodes/shapes/rectangle_shape.hpp"
+#include "3dsgame/source/nodes/physics/character_body.hpp"
+#include "3dsgame/source/objects/servers/physics_server.hpp"
+
 /*
 g++ non_citra_test.cpp 3dsgame/source/objects/servers/object_server.cpp 3dsgame/source/objects/servers/physics_server.cpp 3dsgame/source/objects/object.cpp 3dsgame/source/math/vector2.cpp 3dsgame/source/nodes/node.cpp 3dsgame/source/nodes/node2d.cpp 3dsgame/source/nodes/physics/physics_body.cpp 3dsgame/source/nodes/shapes/rectangle_shape.cpp 3dsgame/source/resources/collision_data.cpp 3dsgame/source/core/node_path.cpp 3dsgame/source/debugging/logging.cpp -I 3dsgame/include/things -I 3dsgame -I 3dsgame/include
+
+g++ non_citra_test.cpp 3dsgame/source/nodes/shapes/rectangle_shape.cpp 3dsgame/source/math/vector2.cpp 3dsgame/source/math/math_stuff.cpp 3dsgame/source/nodes/shapes/shape.cpp 3dsgame/source/nodes/node2d.cpp 3dsgame/source/nodes/node.cpp 3dsgame/source/debugging/logging.cpp 3dsgame/source/core/node_path.cpp -I 3dsgame -I 3dsgame/include -I 3dsgame/include/things
+
+g++ non_citra_test.cpp 3dsgame/source/nodes/shapes/rectangle_shape.cpp 3dsgame/source/math/vector2.cpp 3dsgame/source/math/math_stuff.cpp 3dsgame/source/nodes/shapes/shape.cpp 3dsgame/source/nodes/node2d.cpp 3dsgame/source/nodes/node.cpp 3dsgame/source/debugging/logging.cpp 3dsgame/source/core/node_path.cpp 3dsgame/source/objects/object.cpp 3dsgame/source/objects/servers/object_server.cpp 3dsgame/source/objects/servers/physics_server.cpp 3dsgame/source/resources/collision_data.cpp 3dsgame/source/nodes/physics/character_body.cpp 3dsgame/source/nodes/physics/physics_body.cpp -I 3dsgame -I 3dsgame/include -I 3dsgame/include/things -I 3dsgame/source/nodes
 */
 
-template <typename T> int sign(T of) {
+
+
+int main() {
+	RectangleShape* s1 = new RectangleShape();
+	s1->size = Vector2(20, 20);
+
+	RectangleShape* s2 = new RectangleShape();
+	s2->size = Vector2(20, 20);
+	
+	
+	CharacterBody* c1 = new CharacterBody();
+
+	c1->add_pchild(s1);
+	c1->add_pshape(s1);
+	
+	c1->collision_layer = 1;
+	c1->collision_mask = 1;
+	c1->monitoring = true;
+	c1->enable();
+
+	CharacterBody* c2 = new CharacterBody();
+
+	c2->add_pchild(s2);
+	c2->add_pshape(s2);
+
+	c2->collision_layer = 1;
+	c2->collision_mask = 1;
+	c2->monitorable = true;
+	c2->enable();
+
+	c2->move(Vector2(30, 0));
+
+	Vector2 overlap = s1->get_raw_overlap(s2);
+	
+	std::cout << overlap.x << ", " << overlap.y << std::endl;
+
+	std::vector<CollisionData> cols = get_pphysics_server()->get_collisions(c1, true);
+
+	std::cout << "number of collisions: " << cols.size() << std::endl;
+
+	for (auto col : cols) {
+		std::cout << col.overlap.x << ", " << col.overlap.y << std::endl;
+	}
+
+
+	c1->unclip();
+
+	std::cout << "c1 pos = " << c1->get_global_position().x << ", " << c1->get_global_position().y << std::endl;
+
+//	std::cout << s1->get_global_position().x << ", " << s1->get_global_position().y << std::endl;
+//	std::cout << s2->get_global_position().x << ", " << s2->get_global_position().y << std::endl;
+
+	return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*template <typename T> int sign(T of) {
 	return (of / std::abs(of));
 }
 
@@ -58,23 +138,4 @@ class Shape {
 	
 		Vector2 size;
 		Vector2 global_position;
-};
-
-
-int main() {
-	Shape s1;
-	s1.global_position = Vector2(2, 1);
-	s1.size = Vector2(20, 4);
-
-	Shape s2;
-	s2.global_position = Vector2(-20, 11);
-	s2.size = Vector2(20, 10);
-
-	
-	Vector2 overlap = s1.get_overlap(&s2);
-	std::cout << "overlap = " << overlap.x << ", " << overlap.y << std::endl;
-
-	
-
-	return 0;
-}
+};*/

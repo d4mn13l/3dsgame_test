@@ -21,7 +21,9 @@ class Player : public CharacterBody {
 		void move(Vector2 by);
 
 	protected:
-		virtual void tick(float delta);
+		virtual void _tick(float delta);
+
+		virtual void _ready();
 	
 
 	private:

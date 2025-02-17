@@ -5,6 +5,12 @@
 
 
 Player::Player() {
+
+}
+
+
+void Player::_ready() {
+	std::cout << "readying player" << std::endl;
 	name = "Player";
 
 	enable();
@@ -19,6 +25,7 @@ Player::Player() {
 	// create Shape
 	RectangleShape* pshape = new RectangleShape();
 	pshape->size = Vector2(10, 16);
+	pshape->name = "shape";
 	add_pchild(pshape);
 	add_pshape(pshape);
 
@@ -40,13 +47,14 @@ Player::Player() {
 
 	add_pchild(panimated_sprite);
 
-	Camera* pcamera = new Camera();
+	Camera* pcamera = new Camera(TOP_SCREEN);
 	add_pchild(pcamera);
 
 	pcamera->name = "camera";
 
 	pcamera->margin = Vector2(30,30);
 //	pcamera->set_scale(Vector2(0.5,0.5));
+
 
 	pcamera->activate();
 
@@ -63,18 +71,21 @@ Player::Player() {
 	std::function<void()> oaex = on_area_exited;
 	parea->on_body_exited.connect_argless(oaex);
 */
+
+	CharacterBody::_ready();
+
+
+	get_pnode_tree()->print_tree();
 }
 
 
+void Player::_tick(float delta) {
 
-void Player::tick(float delta) {
-
-//	std::cout << "tick" << std::endl;
+//	std::cout << "_tick" << std::endl;
 
 //	std::cout << on_floor << on_wall << on_ceiling << std::endl;
-//	std::cout << position.x << std::endl;
 
-	CharacterBody::tick(delta);
+	CharacterBody::_tick(delta);
 
 	handle_movement_input();
 	handle_animations();
@@ -85,10 +96,10 @@ void Player::tick(float delta) {
 
 
 	auto cols = get_pphysics_server()->get_collisions(this);
-
+//	std::cout << cols.size() << std::endl;
 	for (auto col : cols) {
-	  // std::cout << "po: x = " << col.overlap.x << ", y = " << col.overlap.y << std::endl;
-//	  std::cout << cols.size() << std::endl;
+//	   std::cout << "po: x = " << col.overlap.x << ", y = " << col.overlap.y << std::endl;
+	  
 	}
 
 }

@@ -7,7 +7,7 @@
 class MovingSprite : public Sprite {
 	public:
 		MovingSprite(int z_index_arg, bool top_screen);
-		virtual void tick(float delta);
+		virtual void _tick(float delta);
 
 		float speed = 5;
 };

@@ -17,8 +17,9 @@
 int main() {
 	
 
-
-	consoleInit(GFX_BOTTOM, NULL);
+	#if (ENABLE_BOTTOM_SCREEN == false)
+		consoleInit(GFX_BOTTOM, NULL);
+	#endif
 
 	dlog("hi", 10);
 
@@ -106,9 +107,9 @@ int main() {
 		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
 		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
 		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0},
-		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,2,2,0},
+		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0},
+		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,1,1,1,0},
+		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,2,2,0},
 		{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0}}, 
 		"romfs:/gfx/tileset.t3x", 16, 0);
 	tile_map_resource.collision = true;
@@ -118,7 +119,7 @@ int main() {
 	TileMap* ptile_map = new TileMap(tile_map_resource);
 
 	ptile_map->name = "TileMap";
-	get_pnode_tree()->root_node.add_pchild(ptile_map);
+//	get_pnode_tree()->root_node.add_pchild(ptile_map);
 
 /*
 
@@ -147,7 +148,7 @@ int main() {
 
 	
 
-	PhysicsBody* pfloor = new PhysicsBody(true, true, true);
+	PhysicsBody* pfloor = new PhysicsBody(true, false, true);
 	pfloor->name = "pfloor";
 	pfloor->collision_layer = PL_WALLS;
 
@@ -158,9 +159,23 @@ int main() {
 	pfloor->add_pchild(pfloor_pshape);
 	pfloor->add_pshape(pfloor_pshape);
 
-	pfloor->move(Vector2(200, 220));
+	pfloor->move(Vector2(100, 100));
 
 	get_pnode_tree()->root_node.add_pchild(pfloor);
+
+
+	PhysicsBody* pwall = new PhysicsBody(true, false, true);
+	pwall->name = "pwall";
+	pwall->collision_layer = PL_WALLS;
+
+	RectangleShape* pwall_shape = new RectangleShape();
+	pwall_shape->set_size(Vector2(10, 16));
+	pwall->add_pchild(pwall_shape);
+	pwall->add_pshape(pwall_shape);
+
+	pwall->move(Vector2(140, 74));
+
+	get_pnode_tree()->root_node.add_pchild(pwall);
 
 
 	Area* parea = new Area();
@@ -175,23 +190,18 @@ int main() {
 	parea->add_pshape(parea_pshape);
 
 	parea->move(Vector2(250, 50));
-	get_pnode_tree()->root_node.add_pchild(parea);
+//	get_pnode_tree()->root_node.add_pchild(parea);
 
 
 
 	Player* pplayer = new Player();
 
-	pplayer->move(Vector2(100, 100));
+	pplayer->move(Vector2(100, 0));
 
 	get_pnode_tree()->root_node.add_pchild(pplayer);
 
 
 	get_pobject_server()->print_pobjects();
-
-//	get_pnode_tree()->print_tree();
-
-
-
 
 	main_loop.start();
 
