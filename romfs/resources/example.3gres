@@ -1,0 +1,14 @@
+ResourceClassName
+
+
+[resource_member_name = value]
+
+everything outside square brackets will be ignored
+
+[another_member = brick]
+
+[multi_line_var = 
+	23432,
+	234]
+
+the closing bracket can also be on a seperate line

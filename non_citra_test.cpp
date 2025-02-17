@@ -1,13 +1,141 @@
+#include "3dsgame/source/resources/resource.hpp"
+
+#include <iostream>
+
+class RealResource : public Resource {
+	public:
+		virtual void load(std::string path) {};
+}
+
+int main() {
+
+
+
+	RealResource r = RealResource();
+
+	auto vars = r.get_var_strings_from_file("romfs/resources/tilemap.3gres");
+
+	for (auto var : vars) {
+		std::cout << var.first << " = " << var.second << std::endl << std::endl;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+/*#include <iostream>
+#include <fstream>
+
+#include <string>
+
+int main() {
+	std::ifstream file("romfs/resources/tilemap.3gres");
+
+	std::string line;
+
+	getline(file, line);
+
+	if (line == "TileMapResource") {
+		std::cout << "resource has correct type, continuing" << std::endl;
+	}
+
+	bool inside_var = false;
+	std::string var_name = "";
+	std::string var_value_string = "";
+
+
+	while (getline(file, line)) {
+		if (line.length() == 0) {
+			continue;
+		}
+
+		// remove all spaces and tabs
+		for (int i = 0; i < line.length(); i++) {
+			if (line.at(i) == ' ' || line.at(i) == '\t') {
+				line.erase(line.begin() + i);
+				i -= 1;
+			}
+		}
+
+		if (line[0] == '[') {
+			
+			inside_var = true;
+
+			for (int i = 1; i < line.length(); i++) {
+				if (line[i] == '=') {
+					break;
+				}
+				var_name += line[i];
+			}
+
+			std::cout << "start of var " << var_name << std::endl;
+
+			var_value_string += line.substr(var_name.length() + 2, line.length() - 3 - var_name.length());
+		} else if (inside_var) {
+			var_value_string += line;
+		}
+
+		if (!inside_var) {
+			continue;
+		}
+
+
+		if (var_value_string != "") {
+			var_value_string += "\n";
+		}
+
+		;
+		
+
+		if (line[line.length() - 1] == ']') {
+			std::cout << "end of var " << var_name << std::endl;
+			std::cout << var_name << " is " << var_value_string << std::endl;
+			inside_var = false;
+			var_name = "";
+			var_value_string = "";
+		} 
+	}
+}*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //#include "physics_server.hpp"
 //#include "physics_body.hpp"
 
-#include <cmath>
+/*#include <cmath>
 #include <iostream>
 #include <algorithm>
 
 #include "3dsgame/source/nodes/shapes/rectangle_shape.hpp"
 #include "3dsgame/source/nodes/physics/character_body.hpp"
-#include "3dsgame/source/objects/servers/physics_server.hpp"
+#include "3dsgame/source/objects/servers/physics_server.hpp"*/
 
 /*
 g++ non_citra_test.cpp 3dsgame/source/objects/servers/object_server.cpp 3dsgame/source/objects/servers/physics_server.cpp 3dsgame/source/objects/object.cpp 3dsgame/source/math/vector2.cpp 3dsgame/source/nodes/node.cpp 3dsgame/source/nodes/node2d.cpp 3dsgame/source/nodes/physics/physics_body.cpp 3dsgame/source/nodes/shapes/rectangle_shape.cpp 3dsgame/source/resources/collision_data.cpp 3dsgame/source/core/node_path.cpp 3dsgame/source/debugging/logging.cpp -I 3dsgame/include/things -I 3dsgame -I 3dsgame/include
@@ -19,7 +147,7 @@ g++ non_citra_test.cpp 3dsgame/source/nodes/shapes/rectangle_shape.cpp 3dsgame/s
 
 
 
-int main() {
+/*int main() {
 	RectangleShape* s1 = new RectangleShape();
 	s1->size = Vector2(20, 20);
 
@@ -70,7 +198,7 @@ int main() {
 //	std::cout << s2->get_global_position().x << ", " << s2->get_global_position().y << std::endl;
 
 	return 0;
-}
+}*/
 
 
 
