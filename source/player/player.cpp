@@ -22,14 +22,16 @@ void Player::_ready() {
 
 //	set_size(Vector2(10, 16));
 
+	OLOG("hi");
+
 	// create Shape
 	RectangleShape* pshape = new RectangleShape();
 	pshape->size = Vector2(10, 16);
 	pshape->name = "shape";
 	add_pchild(pshape);
-	add_pshape(pshape);
 
 
+	OLOG("hi");
 	// create AnimatedSprite
 
 	Animation idle = Animation("idle", std::vector<int> {8,9,10,11}, 0.2, true);
@@ -37,9 +39,14 @@ void Player::_ready() {
 	Animation roll = Animation("roll", knight_roll1_idx, knight_roll8_idx, 0.2, true);
 	SpriteFrames frames = SpriteFrames("romfs:/gfx/knight.t3x", std::vector<Animation> {idle, run, roll});
 
-	std::cout << "run name is " << run.name << " <-" << std::endl;
-	
-	panimated_sprite = new AnimatedSprite(frames, "idle", 0);
+//	std::cout << "run name is " << run.name << " <-" << std::endl;
+
+	OLOG("hi");	
+	//panimated_sprite = new AnimatedSprite(frames, "idle", 0);
+	panimated_sprite = new AnimatedSprite();
+	OLOG("hello there");
+	panimated_sprite->set_sprite_frames(frames);
+	panimated_sprite->play("idle");
 	panimated_sprite->name = "AnimatedSprite";
 	panimated_sprite->scale = Vector2(2,2);
 	
@@ -47,6 +54,7 @@ void Player::_ready() {
 
 	add_pchild(panimated_sprite);
 
+	OLOG("hi");
 	Camera* pcamera = new Camera(TOP_SCREEN);
 	add_pchild(pcamera);
 
@@ -72,10 +80,23 @@ void Player::_ready() {
 	parea->on_body_exited.connect_argless(oaex);
 */
 
+	OLOG("hi");
+	Timer* pt = new Timer(2.5);
+	pt->name = "Timer";
+	pt->timeout.connect_argless(on_area_entered);
+	add_pchild(pt);
+	pt->start();
+
+
+	OLOG("hi");
 	CharacterBody::_ready();
 
 
 	get_pnode_tree()->print_tree();
+
+	//NodePath np = NodePath(std::vector<std::string> {"..", "Decoration"});
+
+
 }
 
 
@@ -148,17 +169,12 @@ void Player::handle_animations() {
 }
 
 
-void Player::move(Vector2 by) {
-	Node2D::move(by);
-
-//	std::cout << "moving by " << by.x << " " << by.y << std::endl;
-}
 
 
 void Player::on_area_entered() {
-	dlog("entered", 10);
+	llog("entered", 10);
 }
 
 void Player::on_area_exited() {
-	dlog("exited", 10);
+	llog("exited", 10);
 }

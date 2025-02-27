@@ -18,8 +18,6 @@ class Player : public CharacterBody {
 		AnimatedSprite* panimated_sprite;
 
 
-		void move(Vector2 by);
-
 	protected:
 		virtual void _tick(float delta);
 

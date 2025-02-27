@@ -3,13 +3,13 @@
 #include <3ds.h>
 #include <citro2d.h>
 
-#include "include/3dsgame.hpp"
+#include "3dsgame.hpp"
 
 #include <3ds/console.h>
 
 //#include "moving_sprite/moving_sprite.hpp"
-#include "player/player.hpp"
-
+//#include "player/player.hpp"
+#include "player/3gscene/player.hpp"
 
 
 
@@ -17,21 +17,22 @@
 int main() {
 	
 
-	#if (ENABLE_BOTTOM_SCREEN == false)
+	if (log_to_bottom_screen) {
 		consoleInit(GFX_BOTTOM, NULL);
-	#endif
+	}
 
-	dlog("hi", 10);
+	llog("hi", 10);
 
 	MainLoop main_loop = MainLoop();
 	
 
 	for (std::string log_msg : log_queue) {
-		dlog(log_msg, 4);
+		llog(log_msg, 4);
 	}
 	
 
-	std::cout << "size of vector = " << sizeof(Vector2) << std::endl;
+
+//	std::cout << "size of vector = " << sizeof(Vector2) << std::endl;
 
 	
 
@@ -80,7 +81,7 @@ int main() {
 
 	node_level_one.add_pchild(&node_level_two);
 
-	dlog("hi4", 4);
+	llog("hi4", 4);
 
 	get_pnode_tree()->root_node.add_pchild(&node_level_one);
 	get_pnode_tree()->root_node.add_pchild(&another_node_level_one);
@@ -98,8 +99,8 @@ int main() {
 */
 
 
-	/*TileMapResource tile_map_resource = TileMapResource(std::vector<std::vector<int>> {
-		{{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+/*	TileMapResource tile_map_resource = TileMapResource(std::vector<std::vector<int>> {
+		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
 			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
 			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
 			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
@@ -119,7 +120,7 @@ int main() {
 			{1,1,1,1,1,1,1,2,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,1,1,1,1,1,1},
 			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
 			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}
-		}
+		}, 
 		"romfs:/gfx/tileset.t3x", 16, 0);
 	tile_map_resource.collision = true;
 	tile_map_resource.collision_layer = PL_WALLS;
@@ -128,7 +129,9 @@ int main() {
 	TileMap* ptile_map = new TileMap(tile_map_resource);
 
 	ptile_map->name = "TileMap";
-	get_pnode_tree()->root_node.add_pchild(ptile_map);*/
+	get_pnode_tree()->root_node.add_pchild(ptile_map);
+
+	get_pnode_tree()->print_tree();*/
 
 /*
 
@@ -160,7 +163,13 @@ int main() {
 	TileMap* ptile_map = new TileMap(tmr);
 	ptile_map->name = "TileMap";
 	get_pnode_tree()->root_node.add_pchild(ptile_map);
+
+	TileMapResource decoration_res = TileMapResource("romfs:/resources/decoration.3gres");
+	TileMap* pdecoration_map = new TileMap(decoration_res);
+	pdecoration_map->name = "Decoration";
+//	get_pnode_tree()->root_node.add_pchild(pdecoration_map);
 	
+
 
 	PhysicsBody* pfloor = new PhysicsBody(true, false, true);
 	pfloor->name = "pfloor";
@@ -171,7 +180,6 @@ int main() {
 	RectangleShape* pfloor_pshape = new RectangleShape();
 	pfloor_pshape->size = Vector2(100, 10);
 	pfloor->add_pchild(pfloor_pshape);
-	pfloor->add_pshape(pfloor_pshape);
 
 	pfloor->move(Vector2(100, 100));
 
@@ -185,7 +193,6 @@ int main() {
 	RectangleShape* pwall_shape = new RectangleShape();
 	pwall_shape->set_size(Vector2(10, 16));
 	pwall->add_pchild(pwall_shape);
-	pwall->add_pshape(pwall_shape);
 
 	pwall->move(Vector2(140, 74));
 
@@ -201,10 +208,14 @@ int main() {
 	RectangleShape* parea_pshape = new RectangleShape();
 	parea_pshape->size = Vector2(20, 20);
 	parea->add_pchild(parea_pshape);
-	parea->add_pshape(parea_pshape);
 
-	parea->move(Vector2(250, 50));
+	parea->move(Vector2(250, 50));;
 //	get_pnode_tree()->root_node.add_pchild(parea);
+
+
+	Sprite* pbottom_sprite = new Sprite("romfs:/gfx/sprites.t3x", 10, 0, BOTTOM_SCREEN);
+	pbottom_sprite->name = "BottomScreenSprite";
+	get_pnode_tree()->root_node.add_pchild(pbottom_sprite);
 
 
 
@@ -215,11 +226,14 @@ int main() {
 	get_pnode_tree()->root_node.add_pchild(pplayer);
 
 
-	get_pobject_server()->print_pobjects();
+	OLOG("olog macro test");
+	LLOG("llog macro test", 10);
 
 
-//	std::string path = "romfs:/resources/tilemap.3gres";
-//	TileMap test = TileMap((std::string) "romfs:/resources/tilemap.3gres");
+
+//	get_pobject_server()->print_pobjects();
+
+	get_pnode_tree()->print_tree();
 
 	main_loop.start();
 

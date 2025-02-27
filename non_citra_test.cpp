@@ -1,11 +1,11 @@
-#include "3dsgame/source/resources/resource.hpp"
+/*#include "3dsgame/include/things/resources/resource.hpp"
 
 #include <iostream>
 
 class RealResource : public Resource {
 	public:
 		virtual void load(std::string path) {};
-}
+};
 
 int main() {
 
@@ -15,11 +15,13 @@ int main() {
 
 	auto vars = r.get_var_strings_from_file("romfs/resources/tilemap.3gres");
 
+	std::cout << sizeof(r) << std::endl;
+
 	for (auto var : vars) {
-		std::cout << var.first << " = " << var.second << std::endl << std::endl;
+//		std::cout << var.first << " = " << var.second << std::endl << std::endl;
 	}
 }
-
+*/
 
 
 

@@ -1,7 +1,7 @@
 #ifndef MOVING_SPRITE
 #define MOVING_SPRITE
 
-#include "3dsgame/include/3dsgame.hpp"
+#include "3dsgame.hpp"
 
 
 class MovingSprite : public Sprite {

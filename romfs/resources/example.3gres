@@ -1,4 +1,4 @@
-ResourceClassName
+name or some identifier, the parser will ignore the first line
 
 
 [resource_member_name = value]

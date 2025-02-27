@@ -1,0 +1,48 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "map.tmx",
+    "console.history": [
+        "3dsgame_exporter.py",
+        "3dsgame_exporter.py;",
+        "python 3dsgame_exporter.py",
+        "python 3dsgame_exporter.py"
+    ],
+    "expandedProjectPaths": [
+        "tilemap",
+        "."
+    ],
+    "fileStates": {
+        "map.tmx": {
+            "scale": 2,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 274,
+                "y": 207.5
+            }
+        },
+        "tilemap/tilemap.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1.5,
+            "scaleInEditor": 4
+        }
+    },
+    "last.executablePath": "/home/daniel/.var/app/org.mapeditor.Tiled/config/tiled/extensions/hello.py",
+    "last.exportedFilePath": "/home/daniel/code/3ds/3dsgame/test",
+    "last.imagePath": "/home/daniel/code/3ds/3dsgame/test/tilemap/tile_images",
+    "map.lastUsedExportFilter": "JSON map files (*.tmj *.json)",
+    "map.lastUsedFormat": "tmx",
+    "map.tileHeight": 16,
+    "map.tileWidth": 16,
+    "openFiles": [
+        "tilemap/tilemap.tsx",
+        "map.tmx"
+    ],
+    "project": "untitled.tiled-project",
+    "recentFiles": [
+        "tilemap/tilemap.tsx",
+        "map.tmx"
+    ]
+}
