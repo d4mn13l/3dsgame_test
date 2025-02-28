@@ -162,7 +162,7 @@ int main() {
 	TileMapResource tmr = TileMapResource("romfs:/resources/tilemap.3gres");
 	TileMap* ptile_map = new TileMap(tmr);
 	ptile_map->name = "TileMap";
-	get_pnode_tree()->root_node.add_pchild(ptile_map);
+//	get_pnode_tree()->root_node.add_pchild(ptile_map);
 
 	TileMapResource decoration_res = TileMapResource("romfs:/resources/decoration.3gres");
 	TileMap* pdecoration_map = new TileMap(decoration_res);
@@ -171,11 +171,10 @@ int main() {
 	
 
 
-	PhysicsBody* pfloor = new PhysicsBody(true, false, true);
+	PhysicsBody* pfloor = new PhysicsBody(false, true);
 	pfloor->name = "pfloor";
 	pfloor->collision_layer = PL_WALLS;
-
-	//pfloor->set_size(Vector2(100, 10));
+	pfloor->enable();
 
 	RectangleShape* pfloor_pshape = new RectangleShape();
 	pfloor_pshape->size = Vector2(100, 10);
@@ -183,12 +182,13 @@ int main() {
 
 	pfloor->move(Vector2(100, 100));
 
-//	get_pnode_tree()->root_node.add_pchild(pfloor);
+	get_pnode_tree()->root_node.add_pchild(pfloor);
 
 
-	PhysicsBody* pwall = new PhysicsBody(true, false, true);
+	PhysicsBody* pwall = new PhysicsBody(false, true);
 	pwall->name = "pwall";
 	pwall->collision_layer = PL_WALLS;
+	pwall->enable();
 
 	RectangleShape* pwall_shape = new RectangleShape();
 	pwall_shape->set_size(Vector2(10, 16));

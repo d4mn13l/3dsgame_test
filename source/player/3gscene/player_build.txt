@@ -94,8 +94,8 @@ RectangleShape PlayerShape {
 
 
 PlayerShape ( ) { 
-size = Vector2 ( 10 , 16 ) 
-name = "Shape" 
+size = Vector2 ( 10 , 16 ) ; 
+name = "Shape" ; 
 } 
 
 virtual void _ready ( ) { 
