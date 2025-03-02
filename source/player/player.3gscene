@@ -40,7 +40,7 @@ CharacterBody Player {
 	
 		update_on_things();
 
-		OLOG(std::to_string(on_floor) + std::to_string(on_wall) + std::to_string(on_ceiling));
+//		OLOG(std::to_string(on_floor) + std::to_string(on_wall) + std::to_string(on_ceiling));
 	}
 
 
@@ -91,7 +91,7 @@ RectangleShape PlayerShape {
 
 
 	PlayerShape() {
-		size = Vector2(10, 16);
+		set_size(Vector2(20, 32));
 		name = "Shape";
 	}
 

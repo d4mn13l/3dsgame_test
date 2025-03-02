@@ -1,2 +1,2 @@
-includes
+includes:
 #include "3dsgame/3dsgame.hpp"

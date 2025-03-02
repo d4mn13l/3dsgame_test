@@ -22,7 +22,7 @@ void Player::PlayerSprite::_ready() {
 
 
 Player::PlayerShape::PlayerShape() : RectangleShape() {
-	size = Vector2 ( 10 , 16 ) ; 
+	set_size ( Vector2 ( 20 , 32 ) ) ; 
 	name = "Shape" ; 
 }
 
@@ -78,7 +78,6 @@ void Player::_tick(float delta) {
 	handle_animations ( ) ; 
 	move_and_collide ( velocity * delta ) ; 
 	update_on_things ( ) ; 
-	OLOG ( std::to_string ( on_floor ) + std::to_string ( on_wall ) + std::to_string ( on_ceiling ) ) ; 
 }
 
 

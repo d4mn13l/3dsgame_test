@@ -9,8 +9,7 @@
 
 //#include "moving_sprite/moving_sprite.hpp"
 //#include "player/player.hpp"
-#include "player/3gscene/player.hpp"
-
+#include "player.hpp"
 
 
 
@@ -21,7 +20,7 @@ int main() {
 		consoleInit(GFX_BOTTOM, NULL);
 	}
 
-	llog("hi", 10);
+	llog("hiii", 10);
 
 	MainLoop main_loop = MainLoop();
 	
@@ -162,13 +161,14 @@ int main() {
 	TileMapResource tmr = TileMapResource("romfs:/resources/tilemap.3gres");
 	TileMap* ptile_map = new TileMap(tmr);
 	ptile_map->name = "TileMap";
-//	get_pnode_tree()->root_node.add_pchild(ptile_map);
+
+	get_pnode_tree()->root_node.add_pchild(ptile_map);
 
 	TileMapResource decoration_res = TileMapResource("romfs:/resources/decoration.3gres");
 	TileMap* pdecoration_map = new TileMap(decoration_res);
 	pdecoration_map->name = "Decoration";
-//	get_pnode_tree()->root_node.add_pchild(pdecoration_map);
-	
+	get_pnode_tree()->root_node.add_pchild(pdecoration_map);
+
 
 
 	PhysicsBody* pfloor = new PhysicsBody(false, true);
@@ -177,12 +177,12 @@ int main() {
 	pfloor->enable();
 
 	RectangleShape* pfloor_pshape = new RectangleShape();
-	pfloor_pshape->size = Vector2(100, 10);
+	pfloor_pshape->set_size(Vector2(200, 20));
 	pfloor->add_pchild(pfloor_pshape);
 
 	pfloor->move(Vector2(100, 100));
 
-	get_pnode_tree()->root_node.add_pchild(pfloor);
+//	get_pnode_tree()->root_node.add_pchild(pfloor);
 
 
 	PhysicsBody* pwall = new PhysicsBody(false, true);
@@ -191,12 +191,26 @@ int main() {
 	pwall->enable();
 
 	RectangleShape* pwall_shape = new RectangleShape();
-	pwall_shape->set_size(Vector2(10, 16));
+	pwall_shape->set_size(Vector2(20, 32));
 	pwall->add_pchild(pwall_shape);
 
 	pwall->move(Vector2(140, 74));
 
 //	get_pnode_tree()->root_node.add_pchild(pwall);
+
+
+	PhysicsBody* pceil = new PhysicsBody(false, true);
+	pceil->name = "pceil";
+	pceil->collision_layer = PL_WALLS;
+	pceil->enable();
+
+	RectangleShape* pceil_shape = new RectangleShape();
+	pceil_shape->set_size(Vector2(100, 10));
+	pceil->add_pchild(pceil_shape);
+	pceil->move(Vector2(50, 50));
+
+//	get_pnode_tree()->root_node.add_pchild(pceil);
+
 
 
 	Area* parea = new Area();
@@ -206,17 +220,49 @@ int main() {
 	parea->monitoring = true;
 
 	RectangleShape* parea_pshape = new RectangleShape();
-	parea_pshape->size = Vector2(20, 20);
+	parea_pshape->set_size(Vector2(20, 20));
 	parea->add_pchild(parea_pshape);
 
-	parea->move(Vector2(250, 50));;
+	parea->move(Vector2(250, 50));
 //	get_pnode_tree()->root_node.add_pchild(parea);
 
 
 	Sprite* pbottom_sprite = new Sprite("romfs:/gfx/sprites.t3x", 10, 0, BOTTOM_SCREEN);
 	pbottom_sprite->name = "BottomScreenSprite";
-	get_pnode_tree()->root_node.add_pchild(pbottom_sprite);
+//	get_pnode_tree()->root_node.add_pchild(pbottom_sprite);
 
+	OLOG(std::to_string(pbottom_sprite->get_global_position().x) + "/" + std::to_string(pbottom_sprite->get_global_position().y));
+
+
+
+	Sprite* psprite = new Sprite("romfs:/gfx/tileset.t3x", 1, 0, TOP_SCREEN);
+	psprite->name = "Sprite";
+//	get_pnode_tree()->root_node.add_pchild(psprite);
+
+
+	Point* porigin = new Point();
+	porigin->name = "OriginPoint";
+//	get_pnode_tree()->root_node.add_pchild(porigin);
+
+
+
+	TouchButton* ptouch_button = new TouchButton();
+	ptouch_button->name = "TouchButton";
+	ptouch_button->set_size(Vector2(100, 100));
+//	get_pnode_tree()->root_node.add_pchild(ptouch_button);
+
+
+	C2D_SpriteSheet sheeet = C2D_SpriteSheetLoad("romfs:/gfx/sprites.t3x");
+
+
+
+	TextureButton* ptexture_button = new TextureButton();
+	ptexture_button->set_screen(BOTTOM_SCREEN);
+	ptexture_button->name = "TextureButton";
+	ptexture_button->set_normal_image(load_c2d_image("romfs:/gfx/sprites.t3x", 5));
+	ptexture_button->set_pressed_image(load_c2d_image("romfs:/gfx/sprites.t3x", 6));
+	OLOG("tb size = " + std::to_string(ptexture_button->get_size().x) + std::to_string(ptexture_button->get_size().y));
+	get_pnode_tree()->root_node.add_pchild(ptexture_button);
 
 
 	Player* pplayer = new Player();

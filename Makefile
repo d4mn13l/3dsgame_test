@@ -14,6 +14,8 @@ TOPDIR ?= $(CURDIR)
 include $(DEVKITARM)/3ds_rules
 
 #---------------------------------------------------------------------------------
+# 3GSCENE_BUILD_DIR is where the .hpp and .cpp files created from .3gscene files
+#	will be placed
 # TARGET is the name of the output
 # BUILD is the directory where object files & intermediate files will be placed
 # SOURCES is a list of directories containing source code
@@ -35,16 +37,16 @@ include $(DEVKITARM)/3ds_rules
 #     - icon.png
 #     - <libctru folder>/default_icon.png
 #---------------------------------------------------------------------------------
-TARGET			:=	$(notdir $(CURDIR))
-BUILD			:=	build
-SOURCES			:=	source source/player/3gscene
-#SOURCES			:= source
-DATA			:=	data
-INCLUDES		:=	. 3dsgame 3dsgame/include 3dsgame/include/things 
-GRAPHICS		:=	gfx
-#GFXBUILD		:=	$(BUILD)
-ROMFS			:=	romfs
-GFXBUILD		:=	$(ROMFS)/gfx
+3GSCENE_BUILD_DIR	:=	source/3gscene_build
+TARGET				:=	$(notdir $(CURDIR))
+BUILD				:=	build
+SOURCES				:=	$(3GSCENE_BUILD_DIR) 3dsgame/preferences  source 
+DATA				:=	data
+INCLUDES			:=	$(3GSCENE_BUILD_DIR) . 3dsgame 3dsgame/include 3dsgame/include/things 
+GRAPHICS			:=	gfx
+#GFXBUILD			:=	$(BUILD)
+ROMFS				:=	romfs
+GFXBUILD			:=	$(ROMFS)/gfx
 
 #---------------------------------------------------------------------------------
 # options for code generation
@@ -182,8 +184,11 @@ all: $(BUILD) $(GFXBUILD) $(DEPSDIR) $(ROMFS_T3XFILES) $(T3XHFILES)
 #	@echo $(SUBDIRS4)
 	@echo $(CTRULIB)
 	@echo $(CURDIR)
+	@python 3dsgame/3gscene/looper.py source $(3GSCENE_BUILD_DIR)
 
 	@$(MAKE) --no-print-directory -C $(BUILD) -f $(CURDIR)/Makefile
+
+#	@rm -r $(3GSCENE_BUILD_DIR)
 
 $(BUILD):
 	@mkdir -p $@

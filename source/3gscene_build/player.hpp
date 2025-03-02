@@ -4,21 +4,21 @@
 #include "3dsgame.hpp" 
 #include "build/knight.h" 
 
-class Player : public CharacterBody {
+class Player : public virtual CharacterBody {
 	public:
-	class PlayerSprite : public AnimatedSprite {
+	class PlayerSprite : public virtual AnimatedSprite {
 		public:
 		PlayerSprite() ;
 		void _ready() ;
 	};
 	
-	class PlayerShape : public RectangleShape {
+	class PlayerShape : public virtual RectangleShape {
 		public:
 		PlayerShape() ;
 		virtual void _ready() ;
 	};
 	
-	class PlayerCamera : public Camera {
+	class PlayerCamera : public virtual Camera {
 		public:
 		PlayerCamera() ;
 		virtual void move_globally(Vector2 by) ;
