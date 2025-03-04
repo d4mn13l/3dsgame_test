@@ -3,9 +3,11 @@
 
 #include "3dsgame.hpp" 
 #include "build/knight.h" 
+#include "bases/damageable.hpp" 
 
-class Player : public virtual CharacterBody {
+class Player : public virtual CharacterBody, public virtual Damageable {
 	public:
+	virtual void take_damage(float amout) ;
 	class PlayerSprite : public virtual AnimatedSprite {
 		public:
 		PlayerSprite() ;

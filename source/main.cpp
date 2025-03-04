@@ -1,34 +1,18 @@
-//#include <fstream>
-
-#include <3ds.h>
-#include <citro2d.h>
-
 #include "3dsgame.hpp"
 
-#include <3ds/console.h>
+#include <bitset>
 
 //#include "moving_sprite/moving_sprite.hpp"
 //#include "player/player.hpp"
 #include "player.hpp"
+#include "slime.hpp"
 
 
 
 int main() {
-	
-
-	if (log_to_bottom_screen) {
-		consoleInit(GFX_BOTTOM, NULL);
-	}
-
-	llog("hiii", 10);
 
 	MainLoop main_loop = MainLoop();
-	
 
-	for (std::string log_msg : log_queue) {
-		llog(log_msg, 4);
-	}
-	
 
 
 //	std::cout << "size of vector = " << sizeof(Vector2) << std::endl;
@@ -231,7 +215,7 @@ int main() {
 	pbottom_sprite->name = "BottomScreenSprite";
 //	get_pnode_tree()->root_node.add_pchild(pbottom_sprite);
 
-	OLOG(std::to_string(pbottom_sprite->get_global_position().x) + "/" + std::to_string(pbottom_sprite->get_global_position().y));
+	OUT(std::to_string(pbottom_sprite->get_global_position().x) + "/" + std::to_string(pbottom_sprite->get_global_position().y));
 
 
 
@@ -252,17 +236,13 @@ int main() {
 //	get_pnode_tree()->root_node.add_pchild(ptouch_button);
 
 
-	C2D_SpriteSheet sheeet = C2D_SpriteSheetLoad("romfs:/gfx/sprites.t3x");
-
-
 
 	TextureButton* ptexture_button = new TextureButton();
 	ptexture_button->set_screen(BOTTOM_SCREEN);
 	ptexture_button->name = "TextureButton";
 	ptexture_button->set_normal_image(load_c2d_image("romfs:/gfx/sprites.t3x", 5));
 	ptexture_button->set_pressed_image(load_c2d_image("romfs:/gfx/sprites.t3x", 6));
-	OLOG("tb size = " + std::to_string(ptexture_button->get_size().x) + std::to_string(ptexture_button->get_size().y));
-	get_pnode_tree()->root_node.add_pchild(ptexture_button);
+//	get_pnode_tree()->root_node.add_pchild(ptexture_button);
 
 
 	Player* pplayer = new Player();
@@ -272,9 +252,20 @@ int main() {
 	get_pnode_tree()->root_node.add_pchild(pplayer);
 
 
-	OLOG("olog macro test");
-	LLOG("llog macro test", 10);
 
+	Node2D* penemies = new Node2D();
+	penemies->name = "Enemies";
+	get_pnode_tree()->root_node.add_pchild(penemies);
+
+	Slime* pslime = new Slime();
+	pslime->name = "Slime";
+	pslime->move(Vector2(120, 0));
+	penemies->add_pchild(pslime);
+
+
+
+//	std::cout << std::bitset<8>(pplayer->collision_mask) << std::endl;
+//	std::cout << std::bitset<8>(pslime->collision_layer) << std::endl;
 
 
 //	get_pobject_server()->print_pobjects();

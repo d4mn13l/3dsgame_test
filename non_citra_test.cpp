@@ -1,3 +1,37 @@
+#include "3dsgame/include/things/signal.hpp"
+
+
+void do_i(int i) {
+	return;
+}
+
+
+int main() {
+	Signal<int> s;
+	s.connect(do_i);
+
+
+	return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*#include "3dsgame/include/things/resources/resource.hpp"
 
 #include <iostream>

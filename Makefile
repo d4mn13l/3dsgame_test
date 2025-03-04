@@ -40,9 +40,9 @@ include $(DEVKITARM)/3ds_rules
 3GSCENE_BUILD_DIR	:=	source/3gscene_build
 TARGET				:=	$(notdir $(CURDIR))
 BUILD				:=	build
-SOURCES				:=	$(3GSCENE_BUILD_DIR) 3dsgame/preferences  source 
+SOURCES				:=	$(3GSCENE_BUILD_DIR) 3dsgame/preferences  source source/pr
 DATA				:=	data
-INCLUDES			:=	$(3GSCENE_BUILD_DIR) . 3dsgame 3dsgame/include 3dsgame/include/things 
+INCLUDES			:=	$(3GSCENE_BUILD_DIR) . 3dsgame 3dsgame/include 3dsgame/include/things source
 GRAPHICS			:=	gfx
 #GFXBUILD			:=	$(BUILD)
 ROMFS				:=	romfs

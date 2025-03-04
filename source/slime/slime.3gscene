@@ -1,2 +1,173 @@
 includes:
-#include "3dsgame/3dsgame.hpp"
+#include "3dsgame.hpp"
+#include "build/slime.h"
+#include "bases/damageable.hpp"
+#include <iostream>
+
+nodes:
+
+CharacterBody Damageable Slime {
+	name = "slime";
+
+	float speed = 10.0;
+	float gravity = 6.0;
+	AnimatedSprite* psprite;
+	Area* phittable_area;
+
+	Vector2 velocity;
+
+	int flip_x = 1;
+
+	collision_layer = PL_ENEMIES;
+	collision_mask = PL_WALLS;
+	monitoring = true;
+	monitorable = true;
+
+
+	protected void _ready() {
+		OUT("readying slime");
+		enable();
+		CharacterBody::_ready();
+		OUT("1");
+		psprite = get_pnode<AnimatedSprite>(NodePath("SlimeSprite"));
+		OUT("1");
+//		psprite->on_animation_finished.connect(std::bind(&Slime::on_animated_sprite_animation_finished, this, std::placeholders::_1));
+		std::function<void(std::string)> thing = std::bind(&Slime::on_animated_sprite_animation_finished, this, std::placeholders::_1);
+		OUT("connecting");
+		connect(&psprite->on_animation_finished, thing);
+		OUT("connected");
+
+		phittable_area = get_pnode<Area>(NodePath("HittableArea"));
+		std::function<void(PhysicsBody*)> paobe = std::bind(&Slime::take_damage, this, std::placeholders::_1);
+		connect(&phittable_area->on_body_entered, paobe);
+	}
+
+
+	protected void _tick(float delta) {
+		CharacterBody::_tick(delta);
+		update_on_things();
+
+		if (on_wall) {
+			flip();
+		}
+
+		velocity.x = speed * flip_x;
+
+		if (!on_floor) {
+			velocity.y += gravity;
+		} else {
+			velocity.y = 0;
+		}
+
+
+		move_and_collide(velocity * delta);
+
+		unclip();
+
+	}
+
+	virtual void take_damage(float delta) {
+		OUT("ouch oof my bones");
+		psprite->play("take_damage");
+	}
+
+
+	void on_animated_sprite_animation_finished(std::string anim_name) {
+		OUT("finished anim " + anim_name);
+		if (anim_name == "take_damage") {
+			pparent->kill_pchild(this);
+		}
+	}
+
+
+	void flip() {
+		set_flip_x(-1 * flip_x);
+	}
+
+	void set_flip_x(int to) {
+		flip_x = to;
+		psprite->set_flip_x(to);
+	}
+
+}
+
+
+
+AnimatedSprite SlimeSprite {
+	name = "SlimeSprite";
+	scale = Vector2(2,2);
+
+	Animation anim_move = Animation("move", slime_move1_idx, slime_move4_idx, 0.2, true);
+	Animation anim_take_damage = Animation("take_damage", slime_take_damage1_idx, slime_take_damage3_idx, 0.2, true);
+	SpriteFrames sprite_frames = SpriteFrames("romfs:/gfx/slime.t3x", std::vector<Animation> {anim_move, anim_take_damage});
+
+	SlimeSprite() {
+		set_sprite_frames(sprite_frames);
+		play("move");
+		move(Vector2(0, -10));
+	}
+
+	void _ready() {
+		AnimatedSprite::_ready();
+	}
+}
+
+
+RectangleShape SlimeShape {
+	name = "SlimeShape";
+	
+	SlimeShape() {
+		set_size(Vector2(20,24));
+	}
+}
+
+
+Area HittableArea {
+	name = "HittableArea";
+	collision_mask = PL_PLAYER;
+	monitoring = true;
+	HittableArea() {
+		enable();
+	}
+}
+
+RectangleShape HittableShape {
+	name = "HittableShape";
+	show_this_shape = true;
+	HittableShape() {
+		set_size(Vector2(20, 4));
+		move(Vector2(0, -10));
+	}
+}
+
+Area Hitbox {
+	name = "Hitbox";
+
+	Hitbox() {
+
+	}
+}
+
+
+RectangleShape HitboxShape {
+	name = "HitboxShape";
+	show_this_shape = true;
+	HitboxShape() {
+		set_size(Vector2(20, 10));
+		move(Vector2(0, 4));
+	}
+}
+
+
+layout:
+
+Slime {
+	SlimeSprite
+	SlimeShape
+	HittableArea {
+		HittableShape
+	}
+	Hitbox {
+		HitboxShape
+	}
+}

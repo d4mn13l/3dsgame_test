@@ -1,0 +1,13 @@
+--atlas -f rgba8888 -z auto 
+slime/take_damage1.png
+slime/take_damage2.png
+slime/take_damage3.png
+slime/green_1.png
+slime/green_2.png
+slime/green_3.png
+slime/green_4.png
+slime/green_9.png
+slime/move1.png
+slime/move2.png
+slime/move3.png
+slime/move4.png

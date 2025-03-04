@@ -22,7 +22,7 @@ void Player::_ready() {
 
 //	set_size(Vector2(10, 16));
 
-	OLOG("hi");
+	OUT("hi");
 
 	// create Shape
 	RectangleShape* pshape = new RectangleShape();
@@ -31,7 +31,7 @@ void Player::_ready() {
 	add_pchild(pshape);
 
 
-	OLOG("hi");
+	OUT("hi");
 	// create AnimatedSprite
 
 	Animation idle = Animation("idle", std::vector<int> {8,9,10,11}, 0.2, true);
@@ -41,10 +41,10 @@ void Player::_ready() {
 
 //	std::cout << "run name is " << run.name << " <-" << std::endl;
 
-	OLOG("hi");	
+	OUT("hi");	
 	//panimated_sprite = new AnimatedSprite(frames, "idle", 0);
 	panimated_sprite = new AnimatedSprite();
-	OLOG("hello there");
+	OUT("hello there");
 	panimated_sprite->set_sprite_frames(frames);
 	panimated_sprite->play("idle");
 	panimated_sprite->name = "AnimatedSprite";
@@ -54,7 +54,7 @@ void Player::_ready() {
 
 	add_pchild(panimated_sprite);
 
-	OLOG("hi");
+	OUT("hi");
 	Camera* pcamera = new Camera(TOP_SCREEN);
 	add_pchild(pcamera);
 
@@ -80,7 +80,7 @@ void Player::_ready() {
 	parea->on_body_exited.connect_argless(oaex);
 */
 
-	OLOG("hi");
+	OUT("hi");
 	Timer* pt = new Timer(2.5);
 	pt->name = "Timer";
 	pt->timeout.connect_argless(on_area_entered);
@@ -88,7 +88,7 @@ void Player::_ready() {
 	pt->start();
 
 
-	OLOG("hi");
+	OUT("hi");
 	CharacterBody::_ready();
 
 
