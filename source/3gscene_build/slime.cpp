@@ -1,7 +1,12 @@
 #include "slime.hpp"
 
 
-void Slime::take_damage(float delta) {
+Slime::~Slime() {
+	OUT ( "slime is dead" ) ; 
+}
+
+
+void Slime::take_damage(float amount) {
 	OUT ( "ouch oof my bones" ) ; 
 	psprite->play ( "take_damage" ) ; 
 }
@@ -10,7 +15,9 @@ void Slime::take_damage(float delta) {
 void Slime::on_animated_sprite_animation_finished(std::string anim_name) {
 	OUT ( "finished anim " + anim_name ) ; 
 	if ( anim_name == "take_damage" ) { 
+		OUT ( "killing myself" ) ; 
 		pparent->kill_pchild ( this ) ; 
+		OUT ( "im ded" ) ; 
 	} 
 }
 
@@ -114,8 +121,8 @@ void Slime::_ready() {
 	connect ( &psprite->on_animation_finished , thing ) ; 
 	OUT ( "connected" ) ; 
 	phittable_area = get_pnode<Area> ( NodePath ( "HittableArea" ) ) ; 
-	std::function<void ( PhysicsBody* ) > paobe = std::bind ( &Slime::take_damage , this , std::placeholders::_1 ) ; 
-	connect ( &phittable_area->on_body_entered , paobe ) ; 
+	std::function<void ( ) > paobe = std::bind ( &Slime::take_damage , this , 1.0 ) ; 
+	connect_argless ( &phittable_area->on_body_entered , paobe ) ; 
 }
 
 

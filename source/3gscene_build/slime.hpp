@@ -7,7 +7,8 @@
 
 class Slime : public virtual CharacterBody, public virtual Damageable {
 	public:
-	virtual void take_damage(float delta) ;
+	~Slime() ;
+	virtual void take_damage(float amount) ;
 	void on_animated_sprite_animation_finished(std::string anim_name) ;
 	void flip() ;
 	void set_flip_x(int to) ;
