@@ -81,7 +81,7 @@ CharacterBody Damageable Slime {
 		OUT("finished anim " + anim_name);
 		if (anim_name == "take_damage") {
 			OUT("killing myself");
-			pparent->kill_pchild(this);
+			delete this;
 			OUT("im ded");
 		}
 	}

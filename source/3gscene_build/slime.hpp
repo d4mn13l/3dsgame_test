@@ -1,5 +1,6 @@
-#ifndef SLIME
-#define SLIME
+#pragma once
+
+
 #include "3dsgame.hpp" 
 #include "build/slime.h" 
 #include "bases/damageable.hpp" 
@@ -66,4 +67,3 @@ class Slime : public virtual CharacterBody, public virtual Damageable {
 	void _ready() ;
 	void _tick(float delta) ;
 };
-#endif

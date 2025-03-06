@@ -270,7 +270,17 @@ int main() {
 
 //	get_pobject_server()->print_pobjects();
 
+	Node2D* pnode = new Node2D();
+	pnode->name = "Node";
+	get_pnode_tree()->root_node.add_pchild(pnode);
+
+	Node2D* pchild = new Node2D();
+	pchild->name = "Child";
+	pnode->add_pchild(pchild);
+
 	get_pnode_tree()->print_tree();
+
+	delete pnode;
 
 	main_loop.start();
 

@@ -16,7 +16,7 @@ void Slime::on_animated_sprite_animation_finished(std::string anim_name) {
 	OUT ( "finished anim " + anim_name ) ; 
 	if ( anim_name == "take_damage" ) { 
 		OUT ( "killing myself" ) ; 
-		pparent->kill_pchild ( this ) ; 
+		delete this ; 
 		OUT ( "im ded" ) ; 
 	} 
 }

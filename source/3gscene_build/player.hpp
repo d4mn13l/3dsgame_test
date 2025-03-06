@@ -1,5 +1,6 @@
-#ifndef PLAYER
-#define PLAYER
+#pragma once
+
+
 
 #include "3dsgame.hpp" 
 #include "build/knight.h" 
@@ -45,4 +46,3 @@ class Player : public virtual CharacterBody, public virtual Damageable {
 	void handle_movement_input() ;
 	void handle_animations() ;
 };
-#endif
