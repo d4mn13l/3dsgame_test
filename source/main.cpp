@@ -6,6 +6,7 @@
 //#include "player/player.hpp"
 #include "player.hpp"
 #include "slime.hpp"
+#include "coin.hpp"
 
 
 
@@ -270,17 +271,19 @@ int main() {
 
 //	get_pobject_server()->print_pobjects();
 
-	Node2D* pnode = new Node2D();
-	pnode->name = "Node";
-	get_pnode_tree()->root_node.add_pchild(pnode);
+	Node2D* pcoins = new Node2D();
 
-	Node2D* pchild = new Node2D();
-	pchild->name = "Child";
-	pnode->add_pchild(pchild);
+	for (int i = 0; i < 10; i++) {
+		Coin* pcoin = new Coin();
+		pcoin->move(Vector2(32*i, 50));
+		pcoins->add_pchild(pcoin);
+	}
+
+	get_pnode_tree()->root_node.add_pchild(pcoins);
+
+
 
 	get_pnode_tree()->print_tree();
-
-	delete pnode;
 
 	main_loop.start();
 

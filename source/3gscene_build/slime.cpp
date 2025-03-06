@@ -13,11 +13,8 @@ void Slime::take_damage(float amount) {
 
 
 void Slime::on_animated_sprite_animation_finished(std::string anim_name) {
-	OUT ( "finished anim " + anim_name ) ; 
 	if ( anim_name == "take_damage" ) { 
-		OUT ( "killing myself" ) ; 
-		delete this ; 
-		OUT ( "im ded" ) ; 
+		queue_free ( ) ; 
 	} 
 }
 

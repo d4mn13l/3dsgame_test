@@ -1,0 +1,57 @@
+includes:
+#include "3dsgame.hpp"
+#include "build/coin.h"
+
+
+nodes:
+
+
+Area Coin {
+	name = "Coin";
+	collision_mask = PL_PLAYER;
+	monitoring = true;
+	
+	Coin() {
+		enable();
+		std::function<void(PhysicsBody*)> oc = std::bind(&Coin::on_collect, this, std::placeholders::_1);
+		connect(&on_body_entered, oc);
+	}
+
+
+	void on_collect(PhysicsBody* pbody) {
+		OUT("collected");
+		queue_free();
+	}
+}
+
+
+RectangleShape CollectShape {
+	show_this_shape = true;
+	CollectShape() {
+		set_size(Vector2(6, 6));
+	}
+}
+
+
+AnimatedSprite CoinSprite {
+	name = "CoinSprite";
+
+	Animation spin_anim = Animation("spin", coin_spin_1_idx, coin_spin_12_idx, 0.2, true);
+	SpriteFrames frames = SpriteFrames("romfs:/gfx/coin.t3x", std::vector<Animation> {spin_anim});
+
+	CoinSprite() {
+		set_sprite_frames(frames);
+		play("spin");
+	}
+}
+
+
+
+
+
+layout:
+
+Coin {
+	CollectShape
+	CoinSprite
+}
