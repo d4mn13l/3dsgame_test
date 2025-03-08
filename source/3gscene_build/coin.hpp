@@ -9,6 +9,7 @@ class Coin : public virtual Area {
 	public:
 	Coin() ;
 	void on_collect(PhysicsBody* pbody) ;
+	void _tick(float delta) ;
 	class CollectShape : public virtual RectangleShape {
 		public:
 		CollectShape() ;

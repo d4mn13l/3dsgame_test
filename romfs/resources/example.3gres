@@ -11,4 +11,9 @@ everything outside square brackets will be ignored
 	23432,
 	234]
 
+[vector = {{thing, thong}, {thang, this is a comma, \,}}]
+
+[int_vec = {1, 3, 5, 2}]
+
+
 the closing bracket can also be on a seperate line

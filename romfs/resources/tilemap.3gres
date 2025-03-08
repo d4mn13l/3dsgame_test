@@ -30,9 +30,9 @@ TileMapResource
 
 [z_index = 0]
 
-[screen = 1]
+[screen = true]
 
-[collision = 1]
+[collision = true]
 
 [collision_layer = 1]
 

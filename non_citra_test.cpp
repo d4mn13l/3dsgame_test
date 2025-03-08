@@ -1,22 +1,45 @@
-#include "3dsgame/include/things/signal.hpp"
+#include <iostream>
 
+#include "3dsgame/include/things/resource.hpp"
+#include "3dsgame/include/things/conversion.hpp"
 
-void do_i(int i) {
-	return;
-}
 
 
 int main() {
-	Signal<int> s;
-	s.connect(do_i);
+	Resource res;
+	res.load("romfs/resources/tilemap.3gres");
 
 
+	/*std::cout << "another_member = " << res.get_string("another_member") << std::endl;
+
+	std::vector<std::string> vector = res.get_string_vector("vector");
+
+
+	std::cout << "vector = {";
+	for (std::string element : vector) {
+		std::cout << element << ", ";
+	}
+	std::cout << "}\n";*/
+
+//	std::vector<std::string> str = res.get_string_vector("int_vec");
+
+//	std::function<int(std::string)> int_getter = std::bind(&Resource::get_int, &res, std::placeholders::_1);
+	
+	std::function<int(std::string)> stoi_func = std::bind(string_to_int, std::placeholders::_1);
+	std::vector<int> ints = res.get_vector("int_vec", stoi_func);
+
+	std::cout << "\n";
+
+	for (int i : ints) {
+		std::cout << i << " is " << typeid(i).name() << "\n";
+	}
+
+	std::cout << res.get_string("tile_set_path") << "\n";
+	std::cout << res.get_string("screen") << "\n";
+
+	
 	return 0;
 }
-
-
-
-
 
 
 

@@ -21,14 +21,24 @@ void Coin::on_collect(PhysicsBody* pbody) {
 }
 
 
+void Coin::_tick(float delta) {
+	Area::_tick ( delta ) ; 
+	Node* pnode = new Node ( ) ; 
+	pnode->name = "test" ; 
+	add_pchild ( pnode ) ; 
+	pnode->queue_free ( ) ; 
+}
+
+
 Coin::CollectShape::CollectShape() : RectangleShape() {
-	show_this_shape = true ; 
-	set_size ( Vector2 ( 6 , 6 ) ) ; 
+	name = "CollectShape" ; 
+	set_size ( Vector2 ( 12 , 12 ) ) ; 
 }
 
 
 
 Coin::CoinSprite::CoinSprite() : AnimatedSprite() {
+	scale = Vector2 ( 2 , 2 ) ; 
 	name = "CoinSprite" ; 
 	set_sprite_frames ( frames ) ; 
 	play ( "spin" ) ; 

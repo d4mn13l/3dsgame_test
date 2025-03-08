@@ -272,6 +272,7 @@ int main() {
 //	get_pobject_server()->print_pobjects();
 
 	Node2D* pcoins = new Node2D();
+	pcoins->name = "Coins";
 
 	for (int i = 0; i < 10; i++) {
 		Coin* pcoin = new Coin();

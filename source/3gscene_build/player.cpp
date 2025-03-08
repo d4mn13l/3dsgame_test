@@ -8,7 +8,7 @@ void Player::take_damage(float amout) {
 
 Player::PlayerSprite::PlayerSprite() : AnimatedSprite() {
 	scale = Vector2 ( 2 , 2 ) ; 
-	name = "AnimatedSprite" ; 
+	name = "PlayerSprite" ; 
 	OUT ( "initing PlayerSprite" ) ; 
 	Animation idle = Animation ( "idle" , std::vector<int> { 8 , 9 , 10 , 11 } , 0.2 , true ) ; 
 	Animation run = Animation ( "run" , knight_run1_idx , knight_run16_idx , 0.2 , true ) ; 
@@ -60,6 +60,7 @@ Player::Player() : CharacterBody(), Damageable() {
 	collision_layer = PL_PLAYER ; 
 	monitorable = true ; 
 	monitoring = true ; 
+	name = "Player" ; 
 	PlayerSprite* playersprite_inst = new PlayerSprite ( ) ; 
 	add_pchild ( playersprite_inst ) ; 
 	PlayerShape* playershape_inst = new PlayerShape ( ) ; 

@@ -22,19 +22,32 @@ Area Coin {
 		OUT("collected");
 		queue_free();
 	}
+
+
+	void _tick(float delta) {
+		Area::_tick(delta);
+
+		Node* pnode = new Node();
+		pnode->name = "test";
+
+		add_pchild(pnode);
+
+		pnode->queue_free();
+	}
 }
 
 
 RectangleShape CollectShape {
-	show_this_shape = true;
+	name = "CollectShape";
 	CollectShape() {
-		set_size(Vector2(6, 6));
+		set_size(Vector2(12, 12));
 	}
 }
 
 
 AnimatedSprite CoinSprite {
 	name = "CoinSprite";
+	scale = Vector2(2, 2);
 
 	Animation spin_anim = Animation("spin", coin_spin_1_idx, coin_spin_12_idx, 0.2, true);
 	SpriteFrames frames = SpriteFrames("romfs:/gfx/coin.t3x", std::vector<Animation> {spin_anim});
@@ -43,6 +56,7 @@ AnimatedSprite CoinSprite {
 		set_sprite_frames(frames);
 		play("spin");
 	}
+
 }
 
 
