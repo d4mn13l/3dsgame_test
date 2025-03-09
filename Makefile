@@ -37,7 +37,7 @@ include $(DEVKITARM)/3ds_rules
 #     - icon.png
 #     - <libctru folder>/default_icon.png
 #---------------------------------------------------------------------------------
-3GSCENE_BUILD_DIR	:=	source/3gscene_build
+3GSCENE_BUILD_DIR	:=	source/3gscene/build source/3gscene_build
 TARGET				:=	$(notdir $(CURDIR))
 BUILD				:=	build
 SOURCES				:=	$(3GSCENE_BUILD_DIR) 3dsgame/preferences  source source/pr
@@ -184,7 +184,7 @@ all: $(BUILD) $(GFXBUILD) $(DEPSDIR) $(ROMFS_T3XFILES) $(T3XHFILES)
 #	@echo $(SUBDIRS4)
 	@echo $(CTRULIB)
 	@echo $(CURDIR)
-	@python 3dsgame/3gscene/looper.py source $(3GSCENE_BUILD_DIR)
+	@python 3dsgame/3gscene/looper.py source
 
 	@$(MAKE) --no-print-directory -C $(BUILD) -f $(CURDIR)/Makefile
 

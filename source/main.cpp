@@ -283,7 +283,7 @@ int main() {
 
 	get_pnode_tree()->root_node.add_pchild(pcoins);
 
-//	consoleInit(GFX_BOTTOM, NULL);
+	consoleInit(GFX_BOTTOM, NULL);
 	PerformanceReporter* pr = new PerformanceReporter();
 	pr->name = "PerformanceReporter";
 	get_pnode_tree()->root_node.add_pchild(pr);
@@ -291,8 +291,6 @@ int main() {
 
 	Camera* test_top_pcamera = new Camera(TOP_SCREEN);
 	OUT("ttpcam x pos = " + std::to_string(test_top_pcamera->get_camera_position().x));
-	
-
 
 	get_pnode_tree()->print_tree();
 

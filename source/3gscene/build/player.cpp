@@ -63,6 +63,8 @@ void Player::PlayerCamera::_ready() {
 Player::Player() : CharacterBody(), Damageable() {
 	collision_mask = PL_WALLS|PL_PLAYER|PL_COINS ; 
 	collision_layer = PL_PLAYER ; 
+	do_update_on_things = true ; 
+	do_unclip = true ; 
 	monitorable = true ; 
 	monitoring = true ; 
 	name = "Player" ; 
