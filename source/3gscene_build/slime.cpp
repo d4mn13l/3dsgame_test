@@ -33,9 +33,11 @@ void Slime::set_flip_x(int to) {
 Slime::SlimeSprite::SlimeSprite() : AnimatedSprite() {
 	scale = Vector2 ( 2 , 2 ) ; 
 	name = "SlimeSprite" ; 
+	OUT ( "initing slime sprite" ) ; 
 	set_sprite_frames ( sprite_frames ) ; 
 	play ( "move" ) ; 
 	move ( Vector2 ( 0 , -10 ) ) ; 
+	OUT ( "inited lime rite" ) ; 
 }
 
 
@@ -63,7 +65,6 @@ Slime::HittableArea::HittableArea() : Area() {
 
 
 Slime::HittableArea::HittableShape::HittableShape() : RectangleShape() {
-	show_this_shape = true ; 
 	name = "HittableShape" ; 
 	set_size ( Vector2 ( 20 , 4 ) ) ; 
 	move ( Vector2 ( 0 , -10 ) ) ; 
@@ -80,7 +81,6 @@ Slime::Hitbox::Hitbox() : Area() {
 
 
 Slime::Hitbox::HitboxShape::HitboxShape() : RectangleShape() {
-	show_this_shape = true ; 
 	name = "HitboxShape" ; 
 	set_size ( Vector2 ( 20 , 10 ) ) ; 
 	move ( Vector2 ( 0 , 4 ) ) ; 

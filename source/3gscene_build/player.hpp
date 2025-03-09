@@ -13,6 +13,7 @@ class Player : public virtual CharacterBody, public virtual Damageable {
 		public:
 		PlayerSprite() ;
 		void _ready() ;
+		virtual void _tick(float delta) ;
 	};
 	
 	class PlayerShape : public virtual RectangleShape {

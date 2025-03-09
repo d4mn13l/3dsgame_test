@@ -25,6 +25,11 @@ void Player::PlayerSprite::_ready() {
 }
 
 
+void Player::PlayerSprite::_tick(float delta) {
+	AnimatedSprite::_tick ( delta ) ; 
+}
+
+
 
 Player::PlayerShape::PlayerShape() : RectangleShape() {
 	set_size ( Vector2 ( 20 , 32 ) ) ; 
@@ -40,7 +45,6 @@ void Player::PlayerShape::_ready() {
 
 Player::PlayerCamera::PlayerCamera() : Camera() {
 	set_screen ( TOP_SCREEN ) ; 
-	activate ( ) ; 
 }
 
 
@@ -51,6 +55,7 @@ void Player::PlayerCamera::move_globally(Vector2 by) {
 
 void Player::PlayerCamera::_ready() {
 	Camera::_ready ( ) ; 
+	activate ( ) ; 
 }
 
 
@@ -72,7 +77,7 @@ Player::Player() : CharacterBody(), Damageable() {
 
 void Player::_ready() {
 	enable ( ) ; 
-	NodePath as_path = NodePath ( "AnimatedSprite" ) ; 
+	NodePath as_path = NodePath ( "PlayerSprite" ) ; 
 	panimated_sprite = get_pnode<AnimatedSprite> ( as_path ) ; 
 	CharacterBody::_ready ( ) ; 
 }

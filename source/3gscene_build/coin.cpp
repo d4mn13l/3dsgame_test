@@ -23,10 +23,6 @@ void Coin::on_collect(PhysicsBody* pbody) {
 
 void Coin::_tick(float delta) {
 	Area::_tick ( delta ) ; 
-	Node* pnode = new Node ( ) ; 
-	pnode->name = "test" ; 
-	add_pchild ( pnode ) ; 
-	pnode->queue_free ( ) ; 
 }
 
 

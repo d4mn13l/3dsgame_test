@@ -26,7 +26,7 @@ CharacterBody Damageable Player {
 
 	protected void _ready() {
 		enable();
-		NodePath as_path = NodePath("AnimatedSprite");
+		NodePath as_path = NodePath("PlayerSprite");
 		panimated_sprite = get_pnode<AnimatedSprite>(as_path);
 		CharacterBody::_ready();
 	}
@@ -133,18 +133,20 @@ AnimatedSprite PlayerSprite {
 		AnimatedSprite::_ready();
 		move(Vector2(0, -8));
 	}
+
+
+	virtual void _tick(float delta) {
+		AnimatedSprite::_tick(delta);
+	}
 }
 
 
 
 Camera PlayerCamera {
-
-	
-
 	PlayerCamera() {
 		name = "PlayerCamera"
 		set_screen(TOP_SCREEN);
-		activate();
+
 	}
 
 	virtual void move_globally(Vector2 by) {
@@ -153,6 +155,7 @@ Camera PlayerCamera {
 
 	virtual void _ready() {
 		Camera::_ready();
+		activate();		
 	}
 }
 

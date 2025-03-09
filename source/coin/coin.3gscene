@@ -27,12 +27,12 @@ Area Coin {
 	void _tick(float delta) {
 		Area::_tick(delta);
 
-		Node* pnode = new Node();
-		pnode->name = "test";
+//		Node* pnode = new Node();
+//		pnode->name = "test";
 
-		add_pchild(pnode);
+//		add_pchild(pnode);
 
-		pnode->queue_free();
+//		pnode->queue_free();
 	}
 }
 

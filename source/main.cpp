@@ -7,6 +7,7 @@
 #include "player.hpp"
 #include "slime.hpp"
 #include "coin.hpp"
+#include "source/pr/performance_reporter.hpp"
 
 
 
@@ -227,7 +228,7 @@ int main() {
 
 	Point* porigin = new Point();
 	porigin->name = "OriginPoint";
-//	get_pnode_tree()->root_node.add_pchild(porigin);
+	get_pnode_tree()->root_node.add_pchild(porigin);
 
 
 
@@ -243,7 +244,7 @@ int main() {
 	ptexture_button->name = "TextureButton";
 	ptexture_button->set_normal_image(load_c2d_image("romfs:/gfx/sprites.t3x", 5));
 	ptexture_button->set_pressed_image(load_c2d_image("romfs:/gfx/sprites.t3x", 6));
-//	get_pnode_tree()->root_node.add_pchild(ptexture_button);
+	get_pnode_tree()->root_node.add_pchild(ptexture_button);
 
 
 	Player* pplayer = new Player();
@@ -282,6 +283,15 @@ int main() {
 
 	get_pnode_tree()->root_node.add_pchild(pcoins);
 
+//	consoleInit(GFX_BOTTOM, NULL);
+	PerformanceReporter* pr = new PerformanceReporter();
+	pr->name = "PerformanceReporter";
+	get_pnode_tree()->root_node.add_pchild(pr);
+
+
+	Camera* test_top_pcamera = new Camera(TOP_SCREEN);
+	OUT("ttpcam x pos = " + std::to_string(test_top_pcamera->get_camera_position().x));
+	
 
 
 	get_pnode_tree()->print_tree();

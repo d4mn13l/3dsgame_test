@@ -106,9 +106,11 @@ AnimatedSprite SlimeSprite {
 	SpriteFrames sprite_frames = SpriteFrames("romfs:/gfx/slime.t3x", std::vector<Animation> {anim_move, anim_take_damage});
 
 	SlimeSprite() {
+		OUT("initing slime sprite");
 		set_sprite_frames(sprite_frames);
 		play("move");
 		move(Vector2(0, -10));
+		OUT("inited lime rite");
 	}
 
 	void _ready() {
@@ -137,7 +139,7 @@ Area HittableArea {
 
 RectangleShape HittableShape {
 	name = "HittableShape";
-	show_this_shape = true;
+//	show_this_shape = true;
 	HittableShape() {
 		set_size(Vector2(20, 4));
 		move(Vector2(0, -10));
@@ -155,7 +157,7 @@ Area Hitbox {
 
 RectangleShape HitboxShape {
 	name = "HitboxShape";
-	show_this_shape = true;
+//	show_this_shape = true;
 	HitboxShape() {
 		set_size(Vector2(20, 10));
 		move(Vector2(0, 4));
