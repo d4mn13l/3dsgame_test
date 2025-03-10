@@ -116,11 +116,13 @@ void Player::handle_movement_input() {
 	else { 
 		velocity.y += gravity ; 
 	} 
-	if ( get_pinput_server ( ) ->is_action_just_pressed ( KEY_B ) ) { 
-		get_pphysics_server ( ) ->print_chunks ( ) ; 
+	Camera* ac = get_prendering_server ( ) ->get_active_pcamera ( TOP_SCREEN ) ; 
+	OUT ( vector_to_string ( ac->get_scale ( ) ) ) ; 
+	if ( get_pinput_server ( ) ->is_action_pressed ( KEY_B ) ) { 
+		ac->set_scale ( ac->get_scale ( ) + 0.05 ) ; 
 	} 
-	if ( keys_held & KEY_X ) { 
-		OUT ( vector_to_string ( get_global_position ( ) ) ) ; 
+	if ( get_pinput_server ( ) ->is_action_pressed ( KEY_X ) ) { 
+		ac->set_scale ( ac->get_scale ( ) - 0.05 ) ; 
 	} 
 }
 
