@@ -190,6 +190,13 @@ all: $(BUILD) $(GFXBUILD) $(DEPSDIR) $(ROMFS_T3XFILES) $(T3XHFILES)
 
 #	@rm -r $(3GSCENE_BUILD_DIR)
 
+copyall:
+	@(helpers/copmake.sh)
+
+copylib:
+	@(cp ../3dsgame/lib/lib3dsgame.a 3dsgame/lib/)
+	make
+
 $(BUILD):
 	@mkdir -p $@
 

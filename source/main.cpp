@@ -153,7 +153,7 @@ int main() {
 	TileMapResource decoration_res = TileMapResource("romfs:/resources/decoration.3gres");
 	TileMap* pdecoration_map = new TileMap(decoration_res);
 	pdecoration_map->name = "Decoration";
-	get_pnode_tree()->root_node.add_pchild(pdecoration_map);
+//	get_pnode_tree()->root_node.add_pchild(pdecoration_map);
 
 
 
@@ -262,7 +262,7 @@ int main() {
 	Slime* pslime = new Slime();
 	pslime->name = "Slime";
 	pslime->move(Vector2(120, 0));
-	penemies->add_pchild(pslime);
+//	penemies->add_pchild(pslime);
 
 
 
@@ -272,7 +272,7 @@ int main() {
 
 //	get_pobject_server()->print_pobjects();
 
-	Node2D* pcoins = new Node2D();
+	/*Node2D* pcoins = new Node2D();
 	pcoins->name = "Coins";
 
 	for (int i = 0; i < 10; i++) {
@@ -281,16 +281,13 @@ int main() {
 		pcoins->add_pchild(pcoin);
 	}
 
-	get_pnode_tree()->root_node.add_pchild(pcoins);
+	get_pnode_tree()->root_node.add_pchild(pcoins);*/
 
 	consoleInit(GFX_BOTTOM, NULL);
 	PerformanceReporter* pr = new PerformanceReporter();
 	pr->name = "PerformanceReporter";
 	get_pnode_tree()->root_node.add_pchild(pr);
 
-
-	Camera* test_top_pcamera = new Camera(TOP_SCREEN);
-	OUT("ttpcam x pos = " + std::to_string(test_top_pcamera->get_camera_position().x));
 
 	get_pnode_tree()->print_tree();
 

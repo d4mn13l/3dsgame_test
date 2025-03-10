@@ -10,7 +10,7 @@ mv pbgep/preferences 3dsgame/
 rm -r pbgep
 
 
-make
+make -j$(($(nproc) - 1))
 
 
 

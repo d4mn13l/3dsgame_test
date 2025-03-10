@@ -38,13 +38,12 @@ CharacterBody Damageable Player {
 	protected void _tick(float delta) {
 		CharacterBody::_tick(delta);
 
+//		OUT(vector_to_string(position));
+
 		handle_movement_input();
 		handle_animations();
 	
 		move_and_collide(velocity * delta);
-	
-		update_on_things();
-
 //		OUT(std::to_string(on_floor) + std::to_string(on_wall) + std::to_string(on_ceiling));
 	}
 
@@ -61,7 +60,7 @@ CharacterBody Damageable Player {
 			velocity.x = 0;
 		}
 	
-		if ((keys_held & KEY_A) && on_floor) {
+		if ((get_pinput_server()->is_action_just_pressed(KEY_A)) && on_floor) {
 			velocity.y = -jump_velocity;
 		}
 
@@ -73,6 +72,14 @@ CharacterBody Damageable Player {
 			velocity.y = 0;
 		} else {
 			velocity.y += gravity;
+		}
+
+		if (get_pinput_server()->is_action_just_pressed(KEY_B)) {
+			get_pphysics_server()->print_chunks();
+		}
+
+		if (keys_held & KEY_X) {
+			OUT(vector_to_string(get_global_position()));
 		}
 
 //		OUT("moving by " + std::to_string(velocity.x) + ", " + std::to_string(velocity.y));
@@ -149,7 +156,7 @@ Camera PlayerCamera {
 	PlayerCamera() {
 		name = "PlayerCamera"
 		set_screen(TOP_SCREEN);
-
+//		set_scale(Vector2(1,1));
 	}
 
 	virtual void move_globally(Vector2 by) {

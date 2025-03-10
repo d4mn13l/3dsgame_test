@@ -90,7 +90,6 @@ void Player::_tick(float delta) {
 	handle_movement_input ( ) ; 
 	handle_animations ( ) ; 
 	move_and_collide ( velocity * delta ) ; 
-	update_on_things ( ) ; 
 }
 
 
@@ -105,7 +104,7 @@ void Player::handle_movement_input() {
 	else if ( ! ( keys_held & KEY_LEFT ) ) { 
 		velocity.x = 0 ; 
 	} 
-	if ( ( keys_held & KEY_A ) && on_floor ) { 
+	if ( ( get_pinput_server ( ) ->is_action_just_pressed ( KEY_A ) ) && on_floor ) { 
 		velocity.y = -jump_velocity ; 
 	} 
 	if ( get_pinput_server ( ) ->is_action_just_released ( KEY_A ) && velocity.y < 0 ) { 
@@ -116,6 +115,12 @@ void Player::handle_movement_input() {
 	} 
 	else { 
 		velocity.y += gravity ; 
+	} 
+	if ( get_pinput_server ( ) ->is_action_just_pressed ( KEY_B ) ) { 
+		get_pphysics_server ( ) ->print_chunks ( ) ; 
+	} 
+	if ( keys_held & KEY_X ) { 
+		OUT ( vector_to_string ( get_global_position ( ) ) ) ; 
 	} 
 }
 
