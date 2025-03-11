@@ -168,7 +168,7 @@ int main() {
 
 	pfloor->move(Vector2(100, 100));
 
-	get_pnode_tree()->root_node.add_pchild(pfloor);
+//	get_pnode_tree()->root_node.add_pchild(pfloor);
 
 
 	PhysicsBody* pwall = new PhysicsBody(false, true);

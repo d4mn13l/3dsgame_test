@@ -117,7 +117,6 @@ void Player::handle_movement_input() {
 		velocity.y += gravity ; 
 	} 
 	Camera* ac = get_prendering_server ( ) ->get_active_pcamera ( TOP_SCREEN ) ; 
-	OUT ( vector_to_string ( ac->get_scale ( ) ) ) ; 
 	if ( get_pinput_server ( ) ->is_action_pressed ( KEY_B ) ) { 
 		ac->set_scale ( ac->get_scale ( ) + 0.05 ) ; 
 	} 
