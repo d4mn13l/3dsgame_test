@@ -153,7 +153,7 @@ int main() {
 	TileMapResource decoration_res = TileMapResource("romfs:/resources/decoration.3gres");
 	TileMap* pdecoration_map = new TileMap(decoration_res);
 	pdecoration_map->name = "Decoration";
-//	get_pnode_tree()->root_node.add_pchild(pdecoration_map);
+	get_pnode_tree()->root_node.add_pchild(pdecoration_map);
 
 
 
@@ -283,10 +283,10 @@ int main() {
 
 	get_pnode_tree()->root_node.add_pchild(pcoins);*/
 
-	consoleInit(GFX_BOTTOM, NULL);
-	PerformanceReporter* pr = new PerformanceReporter();
-	pr->name = "PerformanceReporter";
-	get_pnode_tree()->root_node.add_pchild(pr);
+//	consoleInit(GFX_BOTTOM, NULL);
+//	PerformanceReporter* pr = new PerformanceReporter();
+//	pr->name = "PerformanceReporter";
+//	get_pnode_tree()->root_node.add_pchild(pr);
 
 
 	get_pnode_tree()->print_tree();

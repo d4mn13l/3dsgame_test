@@ -78,18 +78,22 @@ Player::Player() : CharacterBody(), Damageable() {
 
 
 void Player::_ready() {
+	OUT ( "readying player" ) ; 
 	enable ( ) ; 
 	NodePath as_path = NodePath ( "PlayerSprite" ) ; 
 	panimated_sprite = get_pnode<AnimatedSprite> ( as_path ) ; 
 	CharacterBody::_ready ( ) ; 
+	OUT ( "readyied player" ) ; 
 }
 
 
 void Player::_tick(float delta) {
+	OUT ( "player tick start" ) ; 
 	CharacterBody::_tick ( delta ) ; 
 	handle_movement_input ( ) ; 
 	handle_animations ( ) ; 
 	move_and_collide ( velocity * delta ) ; 
+	OUT ( "player tick end" ) ; 
 }
 
 
@@ -109,6 +113,9 @@ void Player::handle_movement_input() {
 	} 
 	if ( get_pinput_server ( ) ->is_action_just_released ( KEY_A ) && velocity.y < 0 ) { 
 		velocity.y = 0 ; 
+	} 
+	if ( on_ceiling && velocity.y <= 0 ) { 
+		velocity.y = gravity ; 
 	} 
 	if ( on_floor && velocity.y >= 0 ) { 
 		velocity.y = 0 ; 

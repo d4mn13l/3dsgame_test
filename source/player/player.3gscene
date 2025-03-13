@@ -28,14 +28,17 @@ CharacterBody Damageable Player {
 
 
 	protected void _ready() {
+		OUT("readying player");
 		enable();
 		NodePath as_path = NodePath("PlayerSprite");
 		panimated_sprite = get_pnode<AnimatedSprite>(as_path);
 		CharacterBody::_ready();
+		OUT("readyied player");
 	}
 
 
 	protected void _tick(float delta) {
+		OUT("player tick start");
 		CharacterBody::_tick(delta);
 
 //		OUT(vector_to_string(position));
@@ -45,6 +48,7 @@ CharacterBody Damageable Player {
 	
 		move_and_collide(velocity * delta);
 //		OUT(std::to_string(on_floor) + std::to_string(on_wall) + std::to_string(on_ceiling));
+		OUT("player tick end");
 	}
 
 
@@ -67,6 +71,11 @@ CharacterBody Damageable Player {
 		if (get_pinput_server()->is_action_just_released(KEY_A) && velocity.y < 0) {
 			velocity.y = 0;
 		}
+
+		if (on_ceiling && velocity.y <= 0) {
+			velocity.y = gravity;
+		}
+
 	
 		if (on_floor && velocity.y >= 0) {
 			velocity.y = 0;
