@@ -38,7 +38,6 @@ CharacterBody Damageable Player {
 
 
 	protected void _tick(float delta) {
-		OUT("player tick start");
 		CharacterBody::_tick(delta);
 
 //		OUT(vector_to_string(position));
@@ -48,7 +47,6 @@ CharacterBody Damageable Player {
 	
 		move_and_collide(velocity * delta);
 //		OUT(std::to_string(on_floor) + std::to_string(on_wall) + std::to_string(on_ceiling));
-		OUT("player tick end");
 	}
 
 

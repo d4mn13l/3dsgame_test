@@ -88,12 +88,10 @@ void Player::_ready() {
 
 
 void Player::_tick(float delta) {
-	OUT ( "player tick start" ) ; 
 	CharacterBody::_tick ( delta ) ; 
 	handle_movement_input ( ) ; 
 	handle_animations ( ) ; 
 	move_and_collide ( velocity * delta ) ; 
-	OUT ( "player tick end" ) ; 
 }
 
 

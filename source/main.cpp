@@ -272,7 +272,7 @@ int main() {
 
 //	get_pobject_server()->print_pobjects();
 
-	/*Node2D* pcoins = new Node2D();
+	Node2D* pcoins = new Node2D();
 	pcoins->name = "Coins";
 
 	for (int i = 0; i < 10; i++) {
@@ -281,12 +281,12 @@ int main() {
 		pcoins->add_pchild(pcoin);
 	}
 
-	get_pnode_tree()->root_node.add_pchild(pcoins);*/
+	get_pnode_tree()->root_node.add_pchild(pcoins);
 
-//	consoleInit(GFX_BOTTOM, NULL);
-//	PerformanceReporter* pr = new PerformanceReporter();
-//	pr->name = "PerformanceReporter";
-//	get_pnode_tree()->root_node.add_pchild(pr);
+	consoleInit(GFX_BOTTOM, NULL);
+	PerformanceReporter* pr = new PerformanceReporter();
+	pr->name = "PerformanceReporter";
+	get_pnode_tree()->root_node.add_pchild(pr);
 
 
 	get_pnode_tree()->print_tree();
